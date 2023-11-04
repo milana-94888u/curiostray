@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtbnv1364eg4o"]
+
+[ext_resource type="Material" uid="uid://5jkylr348opf" path="res://tests/shader_test.tres" id="1_af80p"]
+[ext_resource type="Script" path="res://src/scenes/player/drill_ray.gd" id="2_2pqud"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uq2sp"]
+
+[node name="DrillRay" type="Line2D"]
+material = ExtResource("1_af80p")
+points = PackedVector2Array(144, 127, 646, 260)
+width = 16.0
+texture = SubResource("PlaceholderTexture2D_uq2sp")
+texture_mode = 2
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_2pqud")

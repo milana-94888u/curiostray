@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://tvwpgl1gr1np"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/slot.gd" id="1_mv1p7"]
+
+[node name="Slot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mv1p7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dprdllqbhjp2m"]
+
+[ext_resource type="Texture2D" uid="uid://di6ytxylclh65" path="res://icon.svg" id="1_rxvmg"]
+[ext_resource type="Script" path="res://tests/test_tile_scene.gd" id="2_kysmo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjvgu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqb53"]
+size = Vector2(128, 128)
+
+[node name="TestTileScene" type="Sprite2D"]
+material = SubResource("ShaderMaterial_mjvgu")
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_rxvmg")
+region_rect = Rect2(92.9973, 62.6432, 0, 0)
+script = ExtResource("2_kysmo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_tqb53")
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

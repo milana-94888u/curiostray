@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxc0xkdjr21h2"]
+
+[ext_resource type="Texture2D" uid="uid://4iam3cpql7ym" path="res://assets/sprites/player/player.png" id="1_jllpg"]
+[ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_whao4"]
+[ext_resource type="PackedScene" uid="uid://dtbnv1364eg4o" path="res://src/scenes/player/drill_ray.tscn" id="3_14438"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghq7"]
+radius = 27.0
+height = 88.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_whao4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jllpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rghq7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DrillRay" parent="." instance=ExtResource("3_14438")]

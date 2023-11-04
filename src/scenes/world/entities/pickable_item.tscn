@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhl7kg8rq68at"]
+
+[ext_resource type="Script" path="res://src/scenes/world/entities/pickable_item.gd" id="1_g2xc6"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="3_wx8l5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8cgw1"]
+size = Vector2(16, 16)
+
+[sub_resource type="Resource" id="Resource_j1kc2"]
+script = ExtResource("3_wx8l5")
+icon = SubResource("PlaceholderTexture2D_8cgw1")
+name = "Item"
+max_stack = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhuh3"]
+size = Vector2(16, 16)
+
+[node name="PickableItem" type="Area2D"]
+monitorable = false
+script = ExtResource("1_g2xc6")
+item = SubResource("Resource_j1kc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dhuh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_8cgw1")

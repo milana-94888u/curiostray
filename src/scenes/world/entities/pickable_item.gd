@@ -1,6 +1,9 @@
 @tool
 class_name PickableItem
-extends Area2D
+extends CharacterBody2D
+
+
+var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 @export var item: Item:
@@ -14,24 +17,19 @@ extends Area2D
 			return
 		$CollisionShape2D.disabled = false
 		$Sprite2D.texture = item.icon
-		
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		move_and_slide()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
-func _on_body_entered(body: Node2D) -> void:
+func _on_pickable_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.enqueue_pick_item(self)
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_pickable_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		body.dequeue_pick_item(self)

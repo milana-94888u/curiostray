@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhl7kg8rq68at"]
+[gd_scene load_steps=7 format=3 uid="uid://bhl7kg8rq68at"]
 
 [ext_resource type="Script" path="res://src/scenes/world/entities/pickable_item.gd" id="1_g2xc6"]
+[ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="2_qdgkp"]
 [ext_resource type="Texture2D" uid="uid://c6m3lkifone73" path="res://assets/sprites/tilesets/Tiles_0.png" id="3_j7026"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhuh3"]
 size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7blq"]
+radius = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5p3ay"]
 atlas = ExtResource("3_j7026")
 region = Rect2(19.5122, 19.648, 12.4859, 12.459)
 
 [node name="PickableItem" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 0
 script = ExtResource("1_g2xc6")
+item = ExtResource("2_qdgkp")
+amount = null
 
 [node name="PickableArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -22,6 +28,14 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]
 shape = SubResource("RectangleShape2D_dhuh3")
 
+[node name="MergeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MergeArea"]
+shape = SubResource("CircleShape2D_i7blq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dhuh3")
 
@@ -30,3 +44,4 @@ texture = SubResource("AtlasTexture_5p3ay")
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]
+[connection signal="body_entered" from="MergeArea" to="." method="_on_merge_area_body_entered"]

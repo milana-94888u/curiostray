@@ -5,6 +5,23 @@ extends CharacterBody2D
 var pick_queue: Array[PickableItem]
 
 
+@export var inventory: Inventory:
+	set(new_inventory):
+		inventory = new_inventory
+		if not is_node_ready():
+			await ready
+		if not is_instance_valid(inventory):
+			return
+		if not inventory.changed.is_connected(change_inventory):
+			inventory.changed.connect(change_inventory)
+		for i in 5:
+			$CanvasLayer/HBoxContainer.get_child(i).inventory_slot = inventory.slots[i]
+
+
+func change_inventory() -> void:
+	inventory = inventory
+
+
 func enqueue_pick_item(pickable_item: PickableItem) -> void:
 	pick_queue.push_back(pickable_item)
 
@@ -48,6 +65,51 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if pick_queue:
-		var pickable_item := pick_queue.pop_front() as PickableItem
-		pickable_item.queue_free()
+	try_picks()
+	
+#	if pick_queue:
+#		var pick_amount := mini(
+#			inventory.get_pickable_amount(pick_queue[0].item),
+#			pick_queue[0].amount,
+#		)
+#		if pick_amount:
+#			pick_queue[0].amount -= pick_amount
+#			if pick_queue[0].amount < 1:
+#				pick_queue.pop_at(0)
+#				pick_queue.remove_at(0)
+#		var pickable_item := pick_queue.pop_front() as PickableItem
+#		pickable_item.queue_free()
+
+
+
+func try_picks() -> void:
+	pick_queue = pick_queue.filter(func(pickable_item): return is_instance_valid(pickable_item)) as Array[PickableItem]
+	for pickable_item in pick_queue:
+		var pick_amount := mini(
+			inventory.get_pickable_amount(pickable_item.item),
+			pickable_item.amount,
+		)
+		if pick_amount:
+			inventory.pick_item_with_remainder(pickable_item.item, pick_amount)
+			pickable_item.amount -= pick_amount
+			if pickable_item.amount < 1:
+				pickable_item.queue_free()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

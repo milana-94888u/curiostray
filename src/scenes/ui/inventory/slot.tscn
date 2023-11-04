@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://krc0gf8sc4ys"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/inventory/slot.gd" id="1_6vsl0"]
+
+[node name="Slot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6vsl0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2

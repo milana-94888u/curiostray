@@ -1,8 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxc0xkdjr21h2"]
+[gd_scene load_steps=14 format=3 uid="uid://cxc0xkdjr21h2"]
 
 [ext_resource type="Texture2D" uid="uid://4iam3cpql7ym" path="res://assets/sprites/player/player.png" id="1_jllpg"]
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_whao4"]
+[ext_resource type="Script" path="res://src/resources/inventory/inventory.gd" id="2_mhhbj"]
 [ext_resource type="PackedScene" uid="uid://dtbnv1364eg4o" path="res://src/scenes/player/drill_ray.tscn" id="3_14438"]
+[ext_resource type="Script" path="res://src/resources/inventory/inventory_slot.gd" id="3_jm1qi"]
+[ext_resource type="PackedScene" uid="uid://krc0gf8sc4ys" path="res://src/scenes/ui/inventory/slot.tscn" id="6_ikkxk"]
+
+[sub_resource type="Resource" id="Resource_ydl8i"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_to4gd"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_cdw02"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_d4noi"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_cwl34"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_luhxq"]
+script = ExtResource("2_mhhbj")
+slots = Array[ExtResource("3_jm1qi")]([SubResource("Resource_ydl8i"), SubResource("Resource_to4gd"), SubResource("Resource_cdw02"), SubResource("Resource_d4noi"), SubResource("Resource_cwl34")])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghq7"]
 radius = 27.0
@@ -11,6 +38,7 @@ height = 88.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_whao4")
+inventory = SubResource("Resource_luhxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jllpg")
@@ -22,3 +50,27 @@ shape = SubResource("CapsuleShape2D_rghq7")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="DrillRay" parent="." instance=ExtResource("3_14438")]
+points = PackedVector2Array(0, 0, 64, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 52.0
+offset_top = 32.0
+offset_right = 92.0
+offset_bottom = 72.0
+
+[node name="Slot" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
+layout_mode = 2
+
+[node name="Slot2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
+layout_mode = 2
+
+[node name="Slot3" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
+layout_mode = 2
+
+[node name="Slot4" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
+layout_mode = 2
+
+[node name="Slot5" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
+layout_mode = 2

@@ -17,6 +17,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 			return
 		$CollisionShape2D.disabled = false
 		$Sprite2D.texture = item.icon
+@export var amount := 1
 
 
 func _physics_process(delta: float) -> void:
@@ -33,3 +34,8 @@ func _on_pickable_area_body_entered(body: Node2D) -> void:
 func _on_pickable_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		body.dequeue_pick_item(self)
+
+
+func _on_merge_area_body_entered(body: Node2D) -> void:
+	if body is PickableItem:
+		pass

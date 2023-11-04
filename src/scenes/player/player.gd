@@ -2,6 +2,17 @@ class_name Player
 extends CharacterBody2D
 
 
+var pick_queue: Array[PickableItem]
+
+
+func enqueue_pick_item(pickable_item: PickableItem) -> void:
+	pick_queue.push_back(pickable_item)
+
+
+func dequeue_pick_item(pickable_item: PickableItem) -> void:
+	pick_queue.erase(pickable_item)
+
+
 @export var interactive_range := 64.0
 @onready var drill_ray := $DrillRay as DrillRay
 
@@ -36,3 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	if pick_queue:
+		var pickable_item := pick_queue.pop_front() as PickableItem
+		pickable_item.queue_free()

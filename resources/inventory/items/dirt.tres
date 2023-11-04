@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://b11ncgn18rgj"]
+
+[ext_resource type="Texture2D" uid="uid://c6m3lkifone73" path="res://assets/sprites/tilesets/Tiles_0.png" id="1_42bfh"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="1_tbn7q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p3ay"]
+atlas = ExtResource("1_42bfh")
+region = Rect2(19.5122, 19.648, 12.4859, 12.459)
+
+[resource]
+script = ExtResource("1_tbn7q")
+icon = SubResource("AtlasTexture_5p3ay")
+name = "Dirt"
+max_stack = 8

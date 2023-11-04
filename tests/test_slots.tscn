@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c028h32qpk0pg"]
 
-[ext_resource type="PackedScene" uid="uid://tvwpgl1gr1np" path="res://src/scenes/ui/slot.tscn" id="1_inwpx"]
+[ext_resource type="PackedScene" uid="uid://tvwpgl1gr1np" path="res://tests/slot.tscn" id="1_inwpx"]
 [ext_resource type="Texture2D" uid="uid://di6ytxylclh65" path="res://icon.svg" id="2_muy7r"]
 
 [node name="TestSlots" type="Control"]

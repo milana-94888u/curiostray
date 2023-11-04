@@ -3,9 +3,17 @@
 [ext_resource type="Script" path="res://src/scenes/ui/inventory/slot.gd" id="1_6vsl0"]
 
 [node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_6vsl0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "8"

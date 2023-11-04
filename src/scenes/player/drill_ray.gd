@@ -2,6 +2,23 @@ class_name DrillRay
 extends Line2D
 
 
+var in_radius_flag := false:
+	set(value):
+		in_radius_flag = value
+		check_flags()
+var mouse_held_flag := false:
+	set(value):
+		mouse_held_flag = value
+		check_flags()
+
+
+func check_flags() -> void:
+	if in_radius_flag and mouse_held_flag:
+		BlockBreakManager.breaking_started.emit()
+	else:
+		BlockBreakManager.breaking_stopped.emit()
+
+
 func show_ray_to_point(point: Vector2) -> void:
 	show()
 	points = [Vector2.ZERO, point]
@@ -10,16 +27,10 @@ func show_ray_to_point(point: Vector2) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
-			BlockBreakManager.breaking_started.emit()
+			mouse_held_flag = true
 		elif event.is_released():
-			BlockBreakManager.breaking_stopped.emit()
+			mouse_held_flag = false
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _on_visibility_changed() -> void:
+	in_radius_flag = visible

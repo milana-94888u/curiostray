@@ -14,3 +14,5 @@ texture_mode = 2
 joint_mode = 1
 begin_cap_mode = 2
 script = ExtResource("2_2pqud")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -15,6 +15,8 @@ collision_layer = 4
 script = ExtResource("1_g2xc6")
 
 [node name="PickableArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea"]

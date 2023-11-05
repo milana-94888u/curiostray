@@ -17,6 +17,7 @@ func _ready() -> void:
 			slot.pressed.connect(select_slot.bind(slot))
 		else:
 			slot.button_pressed = true
+			slot.pressed.connect(select_drill_slot)
 
 
 func select_slot(slot: Slot) -> void:

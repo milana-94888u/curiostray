@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxc0xkdjr21h2"]
+[gd_scene load_steps=17 format=3 uid="uid://cxc0xkdjr21h2"]
 
 [ext_resource type="Texture2D" uid="uid://4iam3cpql7ym" path="res://assets/sprites/player/player.png" id="1_jllpg"]
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_whao4"]
 [ext_resource type="Script" path="res://src/resources/inventory/inventory.gd" id="2_mhhbj"]
 [ext_resource type="PackedScene" uid="uid://dtbnv1364eg4o" path="res://src/scenes/player/drill_ray.tscn" id="3_14438"]
 [ext_resource type="Script" path="res://src/resources/inventory/inventory_slot.gd" id="3_jm1qi"]
+[ext_resource type="Script" path="res://src/utils/fsm/finite_state_machine.gd" id="6_dq17m"]
 [ext_resource type="PackedScene" uid="uid://chxwmogoksl6x" path="res://src/scenes/ui/player/hot_panel.tscn" id="6_yytbf"]
+[ext_resource type="Script" path="res://src/scenes/player/BlockPlaceState.gd" id="7_hwf27"]
+[ext_resource type="Script" path="res://src/scenes/player/DrillState.gd" id="8_c7iog"]
 
 [sub_resource type="Resource" id="Resource_ydl8i"]
 script = ExtResource("3_jm1qi")
@@ -52,6 +55,22 @@ shape = SubResource("CapsuleShape2D_rghq7")
 [node name="DrillRay" parent="." instance=ExtResource("3_14438")]
 points = PackedVector2Array(0, 0, 64, 0)
 
+[node name="UseItemFSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_dq17m")
+initial_state = NodePath("DrillState")
+
+[node name="BlockPlaceState" type="Node" parent="UseItemFSM" node_paths=PackedStringArray("player")]
+script = ExtResource("7_hwf27")
+player = NodePath("../..")
+
+[node name="DrillState" type="Node" parent="UseItemFSM" node_paths=PackedStringArray("player", "drill_ray")]
+script = ExtResource("8_c7iog")
+player = NodePath("../..")
+drill_ray = NodePath("../../DrillRay")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HotPanel" parent="CanvasLayer" instance=ExtResource("6_yytbf")]
+
+[connection signal="set_drill" from="CanvasLayer/HotPanel" to="." method="_on_hot_panel_set_drill"]
+[connection signal="set_usable_slot" from="CanvasLayer/HotPanel" to="." method="_on_hot_panel_set_usable_slot"]

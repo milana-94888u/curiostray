@@ -41,11 +41,6 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta: float) -> void:
-	var drill_direction := get_local_mouse_position()
-	if drill_direction.length() < interactive_range:
-		drill_ray.show_ray_to_point(drill_direction)
-	else:
-		drill_ray.hide()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -93,6 +88,16 @@ func try_picks() -> void:
 			pickable_item.amount -= pick_amount
 			if pickable_item.amount < 1:
 				pickable_item.queue_free()
+
+
+func _on_hot_panel_set_drill() -> void:
+	print("drill")
+	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/DrillState)
+
+
+func _on_hot_panel_set_usable_slot(slot: InventorySlot) -> void:
+	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/BlockPlaceState, slot)
+
 
 
 

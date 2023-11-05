@@ -25,10 +25,16 @@ func _ready() -> void:
 				set_dirt(x, y)
 	BlockBreakManager.breaking_started.connect(func(): is_breaking = true)
 	BlockBreakManager.breaking_stopped.connect(func(): is_breaking = false)
+	BlockBreakManager.place_block.connect(place_dirt_by_click)
 
 
 func set_dirt(x: int, y: int) -> void:
 	set_cell(0, Vector2i(x, y), 0, Vector2i.ONE)
+
+
+func place_dirt_by_click() -> void:
+	var coords := local_to_map(get_local_mouse_position())
+	set_cell(0, coords, 0, Vector2i.ONE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

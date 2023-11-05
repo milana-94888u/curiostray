@@ -3,7 +3,10 @@ extends Resource
 
 
 @export var item: Item
-@export var amount := 0
+@export var amount := 0:
+	set(value):
+		amount = value
+		emit_changed()
 
 
 func is_empty() -> bool:

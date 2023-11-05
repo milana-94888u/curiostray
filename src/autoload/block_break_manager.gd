@@ -6,3 +6,6 @@ extends Node
 
 signal breaking_started
 signal breaking_stopped
+
+
+signal place_block

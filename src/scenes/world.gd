@@ -58,6 +58,7 @@ func _physics_process(delta: float) -> void:
 			set_cell(0, coords)
 			var dropped_item := preload("res://src/scenes/world/entities/pickable_item.tscn").instantiate()
 			dropped_item.position = map_to_local(coords)
+			dropped_item.item = preload("res://resources/inventory/items/dirt.tres")
 			add_child(dropped_item)
 			breaking_progress_map.erase(coords)
 	clean_breaking_mapping()

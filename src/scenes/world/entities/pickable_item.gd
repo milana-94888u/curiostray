@@ -8,9 +8,9 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var item: Item:
 	set(new_item):
+		item = new_item
 		if not is_node_ready():
 			await ready
-		item = new_item
 		if not is_instance_valid(item):
 			$CollisionShape2D.disabled = true
 			$Sprite2D.texture = null
@@ -20,10 +20,15 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var amount := 1
 
 
+func _ready() -> void:
+	print("item: ", item)
+
+
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		move_and_slide()
+	if Engine.is_editor_hint():
+		return
+	velocity.y += gravity * delta
+	move_and_slide()
 
 
 func _on_pickable_area_body_entered(body: Node2D) -> void:

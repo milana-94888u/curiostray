@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://chxwmogoksl6x"]
+
+[ext_resource type="PackedScene" uid="uid://krc0gf8sc4ys" path="res://src/scenes/ui/inventory/slot.tscn" id="1_bs1fg"]
+
+[node name="HotPanel" type="HBoxContainer"]
+custom_minimum_size = Vector2(320, 64)
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Slot" parent="." instance=ExtResource("1_bs1fg")]
+layout_mode = 2
+
+[node name="Slot2" parent="." instance=ExtResource("1_bs1fg")]
+layout_mode = 2
+
+[node name="Slot3" parent="." instance=ExtResource("1_bs1fg")]
+layout_mode = 2
+
+[node name="Slot4" parent="." instance=ExtResource("1_bs1fg")]
+layout_mode = 2
+
+[node name="Slot5" parent="." instance=ExtResource("1_bs1fg")]
+layout_mode = 2

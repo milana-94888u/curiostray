@@ -1,5 +1,5 @@
 class_name Slot
-extends PanelContainer
+extends Button
 
 
 @export var inventory_slot: InventorySlot:

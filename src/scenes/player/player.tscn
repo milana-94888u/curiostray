@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/resources/inventory/inventory.gd" id="2_mhhbj"]
 [ext_resource type="PackedScene" uid="uid://dtbnv1364eg4o" path="res://src/scenes/player/drill_ray.tscn" id="3_14438"]
 [ext_resource type="Script" path="res://src/resources/inventory/inventory_slot.gd" id="3_jm1qi"]
-[ext_resource type="PackedScene" uid="uid://krc0gf8sc4ys" path="res://src/scenes/ui/inventory/slot.tscn" id="6_ikkxk"]
+[ext_resource type="PackedScene" uid="uid://chxwmogoksl6x" path="res://src/scenes/ui/player/hot_panel.tscn" id="6_yytbf"]
 
 [sub_resource type="Resource" id="Resource_ydl8i"]
 script = ExtResource("3_jm1qi")
@@ -54,23 +54,4 @@ points = PackedVector2Array(0, 0, 64, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 52.0
-offset_top = 32.0
-offset_right = 92.0
-offset_bottom = 72.0
-
-[node name="Slot" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
-layout_mode = 2
-
-[node name="Slot2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
-layout_mode = 2
-
-[node name="Slot3" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
-layout_mode = 2
-
-[node name="Slot4" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
-layout_mode = 2
-
-[node name="Slot5" parent="CanvasLayer/HBoxContainer" instance=ExtResource("6_ikkxk")]
-layout_mode = 2
+[node name="HotPanel" parent="CanvasLayer" instance=ExtResource("6_yytbf")]

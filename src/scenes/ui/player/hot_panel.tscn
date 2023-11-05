@@ -1,14 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://chxwmogoksl6x"]
+[gd_scene load_steps=5 format=3 uid="uid://chxwmogoksl6x"]
 
+[ext_resource type="Script" path="res://src/scenes/ui/player/hot_panel.gd" id="1_bpa8r"]
 [ext_resource type="PackedScene" uid="uid://krc0gf8sc4ys" path="res://src/scenes/ui/inventory/slot.tscn" id="1_bs1fg"]
+[ext_resource type="PackedScene" uid="uid://b11bn5k3khnnk" path="res://src/scenes/ui/player/drill_slot.tscn" id="3_m5t7f"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_q3old"]
 
 [node name="HotPanel" type="HBoxContainer"]
 custom_minimum_size = Vector2(320, 64)
 offset_right = 8.0
 offset_bottom = 8.0
+script = ExtResource("1_bpa8r")
 
 [node name="Slot" parent="." instance=ExtResource("1_bs1fg")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_q3old")
 
 [node name="Slot2" parent="." instance=ExtResource("1_bs1fg")]
 layout_mode = 2
@@ -20,4 +26,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Slot5" parent="." instance=ExtResource("1_bs1fg")]
+layout_mode = 2
+
+[node name="DrillSlot" parent="." instance=ExtResource("3_m5t7f")]
 layout_mode = 2

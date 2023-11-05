@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b11bn5k3khnnk"]
+
+[node name="DrillSlot" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 1
+toggle_mode = true

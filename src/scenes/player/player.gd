@@ -14,8 +14,7 @@ var pick_queue: Array[PickableItem]
 			return
 		if not inventory.changed.is_connected(change_inventory):
 			inventory.changed.connect(change_inventory)
-		for i in 5:
-			$CanvasLayer/HBoxContainer.get_child(i).inventory_slot = inventory.slots[i]
+		$CanvasLayer/HotPanel.set_inventory(inventory)
 
 
 func change_inventory() -> void:

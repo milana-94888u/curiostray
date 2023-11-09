@@ -20,10 +20,6 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var amount := 1
 
 
-func _ready() -> void:
-	print("item: ", item)
-
-
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return

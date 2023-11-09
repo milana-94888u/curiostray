@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhl7kg8rq68at"]
+[gd_scene load_steps=4 format=3 uid="uid://bhl7kg8rq68at"]
 
 [ext_resource type="Script" path="res://src/scenes/world/entities/pickable_item.gd" id="1_g2xc6"]
-[ext_resource type="Texture2D" uid="uid://b0kjogxi0cpwp" path="res://assets/sprites/Tiles_0.png" id="2_ad6yj"]
-[ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="2_nvyxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhuh3"]
 size = Vector2(8, 8)
@@ -14,7 +12,6 @@ radius = 16.0
 collision_layer = 0
 velocity = Vector2(0, 3.93242e+06)
 script = ExtResource("1_g2xc6")
-item = ExtResource("2_nvyxj")
 
 [node name="PickableArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -34,9 +31,10 @@ shape = SubResource("CircleShape2D_i7blq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dhuh3")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ad6yj")
+scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="PickableArea" to="." method="_on_pickable_area_body_entered"]
 [connection signal="body_exited" from="PickableArea" to="." method="_on_pickable_area_body_exited"]

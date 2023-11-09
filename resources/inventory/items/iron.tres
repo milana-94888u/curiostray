@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c75pcqjekrmm"]
+
+[ext_resource type="Texture2D" uid="uid://dr25j70rc70vd" path="res://assets/sprites/tilesets/tiles.png" id="1_rfmet"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="2_okme0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skwka"]
+atlas = ExtResource("1_rfmet")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_okme0")
+icon = SubResource("AtlasTexture_skwka")
+name = "Iron"
+max_stack = 8

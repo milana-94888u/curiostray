@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cu3r7oxdv2pn0"]
+
+[ext_resource type="Texture2D" uid="uid://dr25j70rc70vd" path="res://assets/sprites/tilesets/tiles.png" id="1_oiv8w"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="2_sop1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skwka"]
+atlas = ExtResource("1_oiv8w")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_sop1f")
+icon = SubResource("AtlasTexture_skwka")
+name = "Gold"
+max_stack = 8

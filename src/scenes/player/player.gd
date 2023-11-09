@@ -77,7 +77,6 @@ func try_picks() -> void:
 
 
 func _on_hot_panel_set_drill() -> void:
-	print("drill")
 	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/DrillState)
 
 

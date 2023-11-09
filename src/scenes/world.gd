@@ -25,16 +25,27 @@ var breaking_progress_map: Dictionary
 func _ready() -> void:
 	BlockBreakManager.breaking_started.connect(func(): is_breaking = true)
 	BlockBreakManager.breaking_stopped.connect(func(): is_breaking = false)
-	BlockBreakManager.place_block.connect(place_dirt_by_click)
+	BlockBreakManager.place_block.connect(place_block_by_click)
 
 
 func set_block(x: int, y: int, block := BlockType.DIRT) -> void:
 	set_cell(0, Vector2i(x, y), 0, Vector2i(block, 0))
 
 
-func place_dirt_by_click() -> void:
+func can_be_placed(coords: Vector2i) -> bool:
+	return get_cell_source_id(0, coords) == -1
+
+
+func place_block_by_click(block: Item) -> void:
 	var coords := local_to_map(get_local_mouse_position())
-	set_cell(0, coords, 0, Vector2i.ONE)
+	var source := tile_set.get_source(0) as TileSetAtlasSource
+	var size := source.get_atlas_grid_size()
+	for x in size.x:
+		for y in size.y:
+			var atlas_coords := Vector2i(x, y)
+			if source.has_tile(atlas_coords):
+				if source.get_tile_data(atlas_coords, 0).get_custom_data("drop") == block:
+					set_cell(0, coords, 0, atlas_coords)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

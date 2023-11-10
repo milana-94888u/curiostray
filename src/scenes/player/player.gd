@@ -75,12 +75,19 @@ func try_picks() -> void:
 				pickable_item.queue_free()
 
 
-func _on_hot_panel_set_drill() -> void:
+func _on_player_ui_canvas_set_drill() -> void:
 	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/DrillState)
 
 
-func _on_hot_panel_set_usable_slot(slot: InventorySlot) -> void:
+func _on_player_ui_canvas_set_usable_slot(slot: InventorySlot) -> void:
 	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/BlockPlaceState, slot)
+
+
+
+
+
+
+
 
 
 

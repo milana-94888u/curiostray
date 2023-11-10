@@ -129,3 +129,6 @@ player = NodePath("../..")
 drill_ray = NodePath("../../DrillRay")
 
 [node name="PlayerUICanvas" parent="." instance=ExtResource("9_kbmhq")]
+
+[connection signal="set_drill" from="PlayerUICanvas" to="." method="_on_player_ui_canvas_set_drill"]
+[connection signal="set_usable_slot" from="PlayerUICanvas" to="." method="_on_player_ui_canvas_set_usable_slot"]

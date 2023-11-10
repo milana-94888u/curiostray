@@ -11,3 +11,7 @@ func physics_update(_delta: float) -> void:
 		drill_ray.show_ray_to_point(drill_direction)
 	else:
 		drill_ray.hide()
+
+
+func exit() -> void:
+	drill_ray.hide()

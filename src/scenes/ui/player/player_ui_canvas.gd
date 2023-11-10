@@ -1,6 +1,10 @@
 extends CanvasLayer
 
 
+signal set_usable_slot(slot: InventorySlot)
+signal set_drill
+
+
 @onready var hot_panel := $HotPanel as HotPanel
 @onready var entire_inventory_ui := $EntireInventoryUI as EntireInventoryUI
 
@@ -24,3 +28,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			hot_panel.hide()
 			get_tree().paused = true
 			entire_inventory_ui.show()
+
+
+func _ready() -> void:
+	hot_panel.set_drill.connect(func(): set_drill.emit())
+	hot_panel.set_usable_slot.connect(
+		func(slot: InventorySlot): set_usable_slot.emit(slot)
+	)

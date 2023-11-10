@@ -5,16 +5,15 @@ extends CharacterBody2D
 var pick_queue: Array[PickableItem]
 
 
+@onready var ui_canvas := $PlayerUICanvas
+
+
 @export var inventory: Inventory:
 	set(new_inventory):
 		inventory = new_inventory
 		if not is_node_ready():
 			await ready
-		if not is_instance_valid(inventory):
-			return
-		if not inventory.changed.is_connected(change_inventory):
-			inventory.changed.connect(change_inventory)
-		$CanvasLayer/HotPanel.set_inventory(inventory)
+		ui_canvas.inventory = inventory
 
 
 func change_inventory() -> void:

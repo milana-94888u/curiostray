@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxc0xkdjr21h2"]
+[gd_scene load_steps=32 format=3 uid="uid://cxc0xkdjr21h2"]
 
 [ext_resource type="Texture2D" uid="uid://4iam3cpql7ym" path="res://assets/sprites/player/player.png" id="1_jllpg"]
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_whao4"]
@@ -6,33 +6,93 @@
 [ext_resource type="PackedScene" uid="uid://dtbnv1364eg4o" path="res://src/scenes/player/drill_ray.tscn" id="3_14438"]
 [ext_resource type="Script" path="res://src/resources/inventory/inventory_slot.gd" id="3_jm1qi"]
 [ext_resource type="Script" path="res://src/utils/fsm/finite_state_machine.gd" id="6_dq17m"]
-[ext_resource type="PackedScene" uid="uid://chxwmogoksl6x" path="res://src/scenes/ui/player/hot_panel.tscn" id="6_yytbf"]
 [ext_resource type="Script" path="res://src/scenes/player/BlockPlaceState.gd" id="7_hwf27"]
 [ext_resource type="Script" path="res://src/scenes/player/DrillState.gd" id="8_c7iog"]
+[ext_resource type="PackedScene" uid="uid://wn0vcrxl4vi7" path="res://src/scenes/ui/player/player_ui_canvas.tscn" id="9_kbmhq"]
 
-[sub_resource type="Resource" id="Resource_ydl8i"]
+[sub_resource type="Resource" id="Resource_ppsqt"]
 script = ExtResource("3_jm1qi")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_to4gd"]
+[sub_resource type="Resource" id="Resource_gokin"]
 script = ExtResource("3_jm1qi")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_cdw02"]
+[sub_resource type="Resource" id="Resource_2b0ey"]
 script = ExtResource("3_jm1qi")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_d4noi"]
+[sub_resource type="Resource" id="Resource_luvau"]
 script = ExtResource("3_jm1qi")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_cwl34"]
+[sub_resource type="Resource" id="Resource_y2v2m"]
 script = ExtResource("3_jm1qi")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_luhxq"]
+[sub_resource type="Resource" id="Resource_gqca3"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_4f7eq"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ru48e"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_wolhx"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_r5jwh"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_htuqk"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_hdwbb"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_k6vxq"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_doq7h"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_soxde"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_28fla"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_phxxa"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_cayhq"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_d41vt"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_1d40a"]
+script = ExtResource("3_jm1qi")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_mwlvh"]
 script = ExtResource("2_mhhbj")
-slots = Array[ExtResource("3_jm1qi")]([SubResource("Resource_ydl8i"), SubResource("Resource_to4gd"), SubResource("Resource_cdw02"), SubResource("Resource_d4noi"), SubResource("Resource_cwl34")])
+slots = Array[ExtResource("3_jm1qi")]([SubResource("Resource_ppsqt"), SubResource("Resource_gokin"), SubResource("Resource_2b0ey"), SubResource("Resource_luvau"), SubResource("Resource_y2v2m"), SubResource("Resource_gqca3"), SubResource("Resource_4f7eq"), SubResource("Resource_ru48e"), SubResource("Resource_wolhx"), SubResource("Resource_r5jwh"), SubResource("Resource_htuqk"), SubResource("Resource_hdwbb"), SubResource("Resource_k6vxq"), SubResource("Resource_doq7h"), SubResource("Resource_soxde"), SubResource("Resource_28fla"), SubResource("Resource_phxxa"), SubResource("Resource_cayhq"), SubResource("Resource_d41vt"), SubResource("Resource_1d40a")])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghq7"]
 radius = 27.0
@@ -41,7 +101,7 @@ height = 88.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_whao4")
-inventory = SubResource("Resource_luhxq")
+inventory = SubResource("Resource_mwlvh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jllpg")
@@ -68,9 +128,4 @@ script = ExtResource("8_c7iog")
 player = NodePath("../..")
 drill_ray = NodePath("../../DrillRay")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HotPanel" parent="CanvasLayer" instance=ExtResource("6_yytbf")]
-
-[connection signal="set_drill" from="CanvasLayer/HotPanel" to="." method="_on_hot_panel_set_drill"]
-[connection signal="set_usable_slot" from="CanvasLayer/HotPanel" to="." method="_on_hot_panel_set_usable_slot"]
+[node name="PlayerUICanvas" parent="." instance=ExtResource("9_kbmhq")]

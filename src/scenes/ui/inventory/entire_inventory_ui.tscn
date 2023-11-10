@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1x2yp3kq0125"]
+
+[ext_resource type="PackedScene" uid="uid://c64n3enbd12lt" path="res://src/scenes/ui/inventory/inventory_ui.tscn" id="1_4dt2v"]
+[ext_resource type="Script" path="res://src/scenes/ui/inventory/entire_inventory_ui.gd" id="1_t84bs"]
+
+[node name="EntireInventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t84bs")
+
+[node name="InventoryUI" parent="." instance=ExtResource("1_4dt2v")]
+unique_name_in_owner = true
+layout_mode = 0

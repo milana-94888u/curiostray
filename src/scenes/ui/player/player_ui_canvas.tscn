@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://wn0vcrxl4vi7"]
+
+[ext_resource type="PackedScene" uid="uid://chxwmogoksl6x" path="res://src/scenes/ui/player/hot_panel.tscn" id="1_o8i6h"]
+[ext_resource type="Script" path="res://src/scenes/ui/player/player_ui_canvas.gd" id="1_s07q2"]
+[ext_resource type="PackedScene" uid="uid://d1x2yp3kq0125" path="res://src/scenes/ui/inventory/entire_inventory_ui.tscn" id="2_vho2v"]
+
+[node name="PlayerUICanvas" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_s07q2")
+
+[node name="HotPanel" parent="." instance=ExtResource("1_o8i6h")]
+process_mode = 1
+
+[node name="EntireInventoryUI" parent="." instance=ExtResource("2_vho2v")]
+process_mode = 2
+visible = false

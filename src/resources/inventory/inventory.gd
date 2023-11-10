@@ -1,8 +1,14 @@
+@tool
 class_name Inventory
 extends Resource
 
 
 @export var slots: Array[InventorySlot]
+
+
+func _init() -> void:
+	for i in 20:
+		slots.append(InventorySlot.new())
 
 
 func get_pickable_amount(item: Item) -> int:

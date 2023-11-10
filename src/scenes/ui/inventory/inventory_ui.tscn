@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://c64n3enbd12lt"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/inventory/inventory_ui.gd" id="1_7llgj"]
+[ext_resource type="PackedScene" uid="uid://krc0gf8sc4ys" path="res://src/scenes/ui/inventory/slot.tscn" id="1_w7me4"]
+
+[node name="InventoryUI" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+script = ExtResource("1_7llgj")
+
+[node name="Slot" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot2" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot3" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot4" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot5" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot6" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot7" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot8" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot9" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot10" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot11" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot12" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot13" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot14" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot15" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot16" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot17" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot18" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot19" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2
+
+[node name="Slot20" parent="." instance=ExtResource("1_w7me4")]
+layout_mode = 2

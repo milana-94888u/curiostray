@@ -8,11 +8,21 @@ signal set_drill
 var button_group := ButtonGroup.new()
 
 
+func get_shortcut(index: int) -> Shortcut:
+	var shortcut = Shortcut.new()
+	var input_event := InputEventAction.new()
+	input_event.action = "slot%d" % (index + 1)
+	shortcut.events.append(input_event)
+	return shortcut
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for slot in get_children():
-		slot = slot as Button
+	for slot_index in len(get_children()):
+		var slot := get_child(slot_index) as Button
+		slot.toggle_mode = true
 		slot.button_group = button_group
+		slot.shortcut = get_shortcut(slot_index)
 		if slot is Slot:
 			slot.pressed.connect(select_slot.bind(slot))
 		else:

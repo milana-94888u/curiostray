@@ -1,3 +1,4 @@
+class_name FloatingSlot
 extends PanelContainer
 
 
@@ -12,7 +13,9 @@ func apply_slot(new_slot: InventorySlot) -> void:
 	if not is_instance_valid(inventory_slot):
 		$TextureRect.texture = null
 		$Label.hide()
+		hide()
 		return
+	show()
 	if is_instance_valid(inventory_slot.item):
 		$TextureRect.texture = inventory_slot.item.icon
 		$Label.show()
@@ -20,5 +23,10 @@ func apply_slot(new_slot: InventorySlot) -> void:
 	else:
 		$TextureRect.texture = null
 		$Label.hide()
+		hide()
 	if not inventory_slot.changed.is_connected(apply_slot):
 		inventory_slot.changed.connect(apply_slot.bind(inventory_slot))
+
+
+func _process(_delta: float) -> void:
+	global_position = get_global_mouse_position()

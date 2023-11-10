@@ -7,10 +7,50 @@ extends Resource
 	set(value):
 		amount = value
 		emit_changed()
+@export var accepted_category: ItemCategory
 
 
 func is_empty() -> bool:
 	return amount == 0
+
+
+func can_put_item(asked_item: Item) -> bool:
+	if not is_instance_valid(asked_item):
+		return true
+	if not is_instance_valid(accepted_category):
+		return true
+	return accepted_category in asked_item.categories
+
+
+func try_change_from(from: InventorySlot) -> void:
+	if is_empty() and from.is_empty():
+		return
+	if not (can_put_item(from.item) and from.can_put_item(item)):
+		return
+	if item == from.item:
+		var remaining_amount := item.max_stack - amount
+		if remaining_amount >= from.amount:
+			amount += from.amount
+			from.empty()
+		else:
+			amount += remaining_amount
+			from.amount -= remaining_amount
+		return
+	var temp_item := from.item
+	var temp_amount := from.amount
+	from.set_item(item, amount)
+	set_item(temp_item, temp_amount)
+
+
+func try_pick_one_from(from: InventorySlot) -> void:
+	if not can_put_item(from.item):
+		return
+	if not is_empty():
+		if item != from.item:
+			return
+	if amount >= from.item.max_stack:
+		return
+	set_item(from.take_one(), amount + 1)
 
 
 func take_one() -> Item:

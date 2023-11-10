@@ -8,4 +8,4 @@ signal breaking_started
 signal breaking_stopped
 
 
-signal place_block(block: Item)
+signal place_block(block: InventorySlot)

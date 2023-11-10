@@ -40,10 +40,7 @@ func place_block_by_click(block_slot: InventorySlot) -> void:
 	var coords := local_to_map(get_local_mouse_position())
 	if not can_be_placed(coords):
 		return
-	var block := block_slot.item
-	block_slot.amount -= 1
-	if block_slot.amount == 0:
-		block_slot.empty()
+	var block := block_slot.take_one()
 	var source := tile_set.get_source(0) as TileSetAtlasSource
 	var size := source.get_atlas_grid_size()
 	for x in size.x:

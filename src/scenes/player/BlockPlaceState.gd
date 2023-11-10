@@ -14,5 +14,5 @@ func process_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if player.get_local_mouse_position().length() < player.interactive_range:
-				if inventory_slot.amount > 0:
+				if not inventory_slot.is_empty():
 					BlockBreakManager.place_block.emit(inventory_slot)

@@ -17,11 +17,3 @@ func try_change_with_floating(from: InventorySlot) -> void:
 
 func try_pick_one_to_floating(from: InventorySlot) -> void:
 	floating_slot.inventory_slot.try_pick_one_from(from)
-
-
-@export var inventory: Inventory:
-	set(value):
-		inventory = value
-		if not is_node_ready():
-			await ready
-		inventory_ui.inventory = inventory

@@ -9,11 +9,10 @@ var pick_queue: Array[PickableItem]
 
 
 @export var inventory: Inventory:
+	get:
+		return Globals.player_data.player_inventory
 	set(new_inventory):
-		inventory = new_inventory
-		if not is_node_ready():
-			await ready
-		ui_canvas.inventory = inventory
+		Globals.player_data.player_inventory = new_inventory
 
 
 func change_inventory() -> void:

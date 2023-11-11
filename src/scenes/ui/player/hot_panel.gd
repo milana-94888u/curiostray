@@ -7,7 +7,12 @@ signal set_drill
 
 
 @export var inventory: Inventory:
-	set = apply_inventory
+	get:
+		return Globals.player_data.player_inventory
+	set(new_inventory):
+		Globals.player_data.player_inventory = new_inventory
+		if is_instance_valid(inventory):
+			apply_inventory()
 
 
 var button_group := ButtonGroup.new()
@@ -23,6 +28,8 @@ func get_shortcut(index: int) -> Shortcut:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if is_instance_valid(inventory):
+		apply_inventory()
 	for slot_index in len(get_children()):
 		var slot := get_child(slot_index) as Button
 		slot.toggle_mode = true
@@ -44,8 +51,7 @@ func select_drill_slot() -> void:
 	set_drill.emit()
 
 
-func apply_inventory(new_inventory: Inventory) -> void:
-	inventory = new_inventory
+func apply_inventory() -> void:
 	if not is_node_ready():
 		await ready
 	for i in 5:

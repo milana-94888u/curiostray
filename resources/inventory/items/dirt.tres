@@ -11,4 +11,5 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("1_tbn7q")
 icon = SubResource("AtlasTexture_skwka")
 name = "Dirt"
+categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
 max_stack = 8

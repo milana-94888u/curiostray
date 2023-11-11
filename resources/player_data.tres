@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=25 format=3 uid="uid://da7sfr64nat0b"]
+
+[ext_resource type="Script" path="res://src/resources/player_data.gd" id="1_gccfx"]
+[ext_resource type="Script" path="res://src/resources/inventory/inventory.gd" id="1_m61qy"]
+[ext_resource type="Script" path="res://src/resources/inventory/inventory_slot.gd" id="2_qcuke"]
+
+[sub_resource type="Resource" id="Resource_kqi41"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ukbt8"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_5us1r"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_5sjt0"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_naibd"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_f3agw"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_qxyi4"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_rsntw"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_hfjjd"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_8tqco"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_f2pum"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_8ai7x"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_fhf64"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_v8qgq"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_7klxp"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_7ibxm"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_02oe7"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_k7yca"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ry2o3"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_csmos"]
+script = ExtResource("2_qcuke")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_1yx2r"]
+script = ExtResource("1_m61qy")
+slots = Array[ExtResource("2_qcuke")]([SubResource("Resource_kqi41"), SubResource("Resource_ukbt8"), SubResource("Resource_5us1r"), SubResource("Resource_5sjt0"), SubResource("Resource_naibd"), SubResource("Resource_f3agw"), SubResource("Resource_qxyi4"), SubResource("Resource_rsntw"), SubResource("Resource_hfjjd"), SubResource("Resource_8tqco"), SubResource("Resource_f2pum"), SubResource("Resource_8ai7x"), SubResource("Resource_fhf64"), SubResource("Resource_v8qgq"), SubResource("Resource_7klxp"), SubResource("Resource_7ibxm"), SubResource("Resource_02oe7"), SubResource("Resource_k7yca"), SubResource("Resource_ry2o3"), SubResource("Resource_csmos")])
+
+[resource]
+script = ExtResource("1_gccfx")
+available_crafts = Array[Resource("res://src/resources/crafting/crafring_recipe.gd")]([])
+player_inventory = SubResource("Resource_1yx2r")

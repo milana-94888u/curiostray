@@ -11,4 +11,5 @@ region = Rect2(32, 0, 16, 16)
 script = ExtResource("2_okme0")
 icon = SubResource("AtlasTexture_skwka")
 name = "Iron"
+categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
 max_stack = 8

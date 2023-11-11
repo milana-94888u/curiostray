@@ -7,11 +7,20 @@ signal pick_one_requested(from: InventorySlot)
 
 
 @export var inventory: Inventory:
-	set = apply_inventory
+	get:
+		return Globals.player_data.player_inventory
+	set(new_inventory):
+		Globals.player_data.player_inventory = new_inventory
+		if is_instance_valid(inventory):
+			apply_inventory()
 
 
-func apply_inventory(new_inventory: Inventory) -> void:
-	inventory = new_inventory
+func _ready() -> void:
+	if is_instance_valid(inventory):
+		apply_inventory()
+
+
+func apply_inventory() -> void:
 	if not is_node_ready():
 		await ready
 	for i in 20:

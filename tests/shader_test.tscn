@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://esw7haunj0uq"]
-
-[ext_resource type="Material" uid="uid://5jkylr348opf" path="res://tests/shader_test.tres" id="1_lijqs"]
-
-[node name="TextureRect" type="ColorRect"]
-material = ExtResource("1_lijqs")
-offset_right = 256.0
-offset_bottom = 256.0

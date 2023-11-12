@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1x2yp3kq0125"]
+[gd_scene load_steps=5 format=3 uid="uid://d1x2yp3kq0125"]
 
 [ext_resource type="PackedScene" uid="uid://c64n3enbd12lt" path="res://src/scenes/ui/inventory/inventory_ui.tscn" id="1_4dt2v"]
 [ext_resource type="Script" path="res://src/scenes/ui/inventory/entire_inventory_ui.gd" id="1_t84bs"]
+[ext_resource type="PackedScene" uid="uid://bxmi8eygkewyf" path="res://src/scenes/ui/crafting/crafting_recipes_grid.tscn" id="3_3q6y8"]
 [ext_resource type="PackedScene" uid="uid://dvpothvy2qsdc" path="res://src/scenes/ui/inventory/floating_slot.tscn" id="3_wia7q"]
 
 [node name="EntireInventoryUI" type="Control"]
@@ -17,8 +18,24 @@ script = ExtResource("1_t84bs")
 unique_name_in_owner = true
 layout_mode = 0
 
+[node name="CraftingRecipesGrid" parent="." instance=ExtResource("3_3q6y8")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="FloatingSlot" parent="." instance=ExtResource("3_wia7q")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[connection signal="craft_requested" from="CraftingRecipesGrid" to="." method="_on_crafting_recipes_grid_craft_requested"]

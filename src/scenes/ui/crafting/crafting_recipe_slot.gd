@@ -7,6 +7,10 @@ extends Button
 @export var is_available := false:
 	set(value):
 		is_available = value
+		if is_available:
+			modulate = Color.WHITE
+		else:
+			modulate = Color(Color.WHITE, 0.5)
 		disabled = not is_available
 
 
@@ -36,3 +40,7 @@ func _make_custom_tooltip(_for_text: String) -> Object:
 		ingridient_slot.counted_item = ingridient.reqiured_item
 		result.add_child(ingridient_slot)
 	return result
+
+
+func _on_pressed() -> void:
+	print("pressed")

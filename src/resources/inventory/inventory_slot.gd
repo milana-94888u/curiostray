@@ -4,7 +4,11 @@ extends Resource
 
 var counted_item: CountedItem = CountedItem.new():
 	set(value):
-		counted_item = value
+		counted_item.set_block_signals(true)
+		counted_item.item = value.item
+		counted_item.amount = value.amount
+		counted_item.set_block_signals(false)
+		counted_item.emit_changed()
 		emit_changed()
 
 @export var item: Item:
@@ -46,6 +50,7 @@ func try_change_from(from: InventorySlot) -> void:
 		else:
 			amount += remaining_amount
 			from.amount -= remaining_amount
+		emit_changed()
 		return
 	var temp_item := from.item
 	var temp_amount := from.amount

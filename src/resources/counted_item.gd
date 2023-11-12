@@ -10,4 +10,6 @@ extends Resource
 @export var amount := 1:
 	set(value):
 		amount = value
+		if amount == 0:
+			item = null
 		emit_changed()

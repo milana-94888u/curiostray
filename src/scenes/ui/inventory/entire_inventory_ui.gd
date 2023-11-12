@@ -17,3 +17,12 @@ func try_change_with_floating(from: InventorySlot) -> void:
 
 func try_pick_one_to_floating(from: InventorySlot) -> void:
 	floating_slot.inventory_slot.try_pick_one_from(from)
+
+
+func _on_crafting_recipes_grid_craft_requested(recipe: CraftingRecipe) -> void:
+	print("crafting request")
+	if is_instance_valid(floating_slot.inventory_slot.item):
+		return
+	var craft_result := inventory_ui.inventory.craft(recipe)
+	if craft_result:
+		floating_slot.inventory_slot.counted_item = craft_result

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=5 format=3 uid="uid://c45e2sukato17"]
+
+[ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="1_1wmch"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="2_4namb"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafring_recipe.gd" id="3_46y2n"]
+
+[sub_resource type="Resource" id="Resource_wsqce"]
+script = ExtResource("2_4namb")
+item = ExtResource("1_1wmch")
+amount = 1
+
+[resource]
+script = ExtResource("3_46y2n")
+ingridients = Array[Resource("res://src/resources/crafting/crafting_ingridient.gd")]([])
+result = SubResource("Resource_wsqce")

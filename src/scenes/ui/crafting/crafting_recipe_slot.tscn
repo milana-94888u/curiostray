@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://h8rd1iuy3skd"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/crafting/crafting_recipe_slot.gd" id="1_dd3bj"]
+[ext_resource type="PackedScene" uid="uid://bixwcj5yj87vd" path="res://src/scenes/ui/counted_item_ui.tscn" id="2_2ayln"]
+
+[node name="CraftingRecipeSlot" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_dd3bj")
+counted_item_scene = ExtResource("2_2ayln")
+
+[node name="ResultDisplay" parent="." instance=ExtResource("2_2ayln")]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0

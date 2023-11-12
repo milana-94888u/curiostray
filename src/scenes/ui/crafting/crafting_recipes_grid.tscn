@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxmi8eygkewyf"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/crafting/crafting_recipes_grid.gd" id="1_rw7yq"]
+[ext_resource type="PackedScene" uid="uid://h8rd1iuy3skd" path="res://src/scenes/ui/crafting/crafting_recipe_slot.tscn" id="2_0l272"]
+
+[node name="CraftingRecipesGrid" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 10
+script = ExtResource("1_rw7yq")
+crafting_recipe_slot_scene = ExtResource("2_0l272")

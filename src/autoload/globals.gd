@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var player_data: PlayerData
+@export var player_data: PlayerData = PlayerData.new()
 
 
 func _ready() -> void:

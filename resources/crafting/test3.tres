@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=12 format=3 uid="uid://bpj5s5byj7gd"]
+
+[ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="1_r1jc4"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="2_5lpsw"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="3_ivhs7"]
+[ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="4_kh0qj"]
+[ext_resource type="Resource" uid="uid://cu3r7oxdv2pn0" path="res://resources/inventory/items/gold.tres" id="5_jb8v6"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafring_recipe.gd" id="6_wk2e1"]
+
+[sub_resource type="Resource" id="Resource_3681k"]
+script = ExtResource("2_5lpsw")
+item = ExtResource("1_r1jc4")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_b515j"]
+script = ExtResource("3_ivhs7")
+reqiured_item = SubResource("Resource_3681k")
+
+[sub_resource type="Resource" id="Resource_8e2aq"]
+script = ExtResource("2_5lpsw")
+item = ExtResource("4_kh0qj")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_x2kru"]
+script = ExtResource("3_ivhs7")
+reqiured_item = SubResource("Resource_8e2aq")
+
+[sub_resource type="Resource" id="Resource_rlxd8"]
+script = ExtResource("2_5lpsw")
+item = ExtResource("5_jb8v6")
+amount = 1
+
+[resource]
+script = ExtResource("6_wk2e1")
+ingridients = Array[ExtResource("3_ivhs7")]([SubResource("Resource_b515j"), SubResource("Resource_x2kru")])
+result = SubResource("Resource_rlxd8")

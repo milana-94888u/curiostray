@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bixwcj5yj87vd"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/counted_item_ui.gd" id="1_ny34g"]
+[ext_resource type="Texture2D" uid="uid://dr25j70rc70vd" path="res://assets/sprites/tilesets/tiles.png" id="1_t657i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skwka"]
+atlas = ExtResource("1_t657i")
+region = Rect2(16, 0, 16, 16)
+
+[node name="CountedItemUI" type="TextureRect"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_skwka")
+script = ExtResource("1_ny34g")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "9"

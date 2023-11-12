@@ -1,63 +1,54 @@
-[gd_scene load_steps=22 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=19 format=3 uid="uid://mf5tlynfdkjk"]
 
-[ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="1_avaj8"]
-[ext_resource type="Texture2D" uid="uid://dr25j70rc70vd" path="res://assets/sprites/tilesets/tiles.png" id="1_d01f3"]
-[ext_resource type="Script" path="res://src/scenes/world.gd" id="1_gh26o"]
-[ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="2_m160r"]
-[ext_resource type="Resource" uid="uid://c75pcqjekrmm" path="res://resources/inventory/items/iron.tres" id="3_lco8k"]
-[ext_resource type="Resource" uid="uid://cu3r7oxdv2pn0" path="res://resources/inventory/items/gold.tres" id="4_cv1em"]
-[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="4_k0q4t"]
-[ext_resource type="Texture2D" uid="uid://di6ytxylclh65" path="res://icon.svg" id="4_pwweg"]
-[ext_resource type="Resource" uid="uid://hop8devtc53a" path="res://resources/inventory/items/silicat.tres" id="5_8usxv"]
-[ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="6_6uwkx"]
-[ext_resource type="Resource" uid="uid://d3bamexxsbkvx" path="res://resources/inventory/items/energy.tres" id="6_g28gj"]
-[ext_resource type="Script" path="res://src/scenes/WorldGenerator.gd" id="7_tdfk3"]
+[ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="1_mgp0s"]
+[ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="2_nhjiy"]
+[ext_resource type="Resource" uid="uid://c75pcqjekrmm" path="res://resources/inventory/items/iron.tres" id="3_aosk3"]
+[ext_resource type="Resource" uid="uid://cu3r7oxdv2pn0" path="res://resources/inventory/items/gold.tres" id="4_006t8"]
+[ext_resource type="Resource" uid="uid://hop8devtc53a" path="res://resources/inventory/items/silicat.tres" id="5_cinta"]
+[ext_resource type="Resource" uid="uid://d3bamexxsbkvx" path="res://resources/inventory/items/energy.tres" id="6_060nh"]
+[ext_resource type="Texture2D" uid="uid://dr25j70rc70vd" path="res://assets/sprites/tilesets/tiles.png" id="7_n2g4n"]
+[ext_resource type="Script" path="res://src/scenes/world/world.gd" id="8_ib7oy"]
+[ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="11_iomqm"]
+[ext_resource type="Script" path="res://src/scenes/world/WorldGenerator.gd" id="12_imxky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6ptp"]
-texture = ExtResource("1_d01f3")
+texture = ExtResource("7_n2g4n")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:0/0/custom_data_0 = ExtResource("1_avaj8")
+0:0/0/custom_data_0 = ExtResource("1_mgp0s")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0/custom_data_0 = ExtResource("2_m160r")
+1:0/0/custom_data_0 = ExtResource("2_nhjiy")
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0/custom_data_0 = ExtResource("3_lco8k")
+2:0/0/custom_data_0 = ExtResource("3_aosk3")
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0/custom_data_0 = ExtResource("4_cv1em")
+3:0/0/custom_data_0 = ExtResource("4_006t8")
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0/custom_data_0 = ExtResource("5_8usxv")
+4:0/0/custom_data_0 = ExtResource("5_cinta")
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:0/0/custom_data_0 = ExtResource("6_g28gj")
+5:0/0/custom_data_0 = ExtResource("6_060nh")
 
 [sub_resource type="TileSet" id="TileSet_ais84"]
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "drop"
 custom_data_layer_0/type = 24
 sources/0 = SubResource("TileSetAtlasSource_s6ptp")
-
-[sub_resource type="Resource" id="Resource_xvgf8"]
-script = ExtResource("4_k0q4t")
-icon = ExtResource("4_pwweg")
-name = "Item"
-categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
-max_stack = 8
 
 [sub_resource type="Gradient" id="Gradient_ie8t8"]
 offsets = PackedFloat32Array(0, 0.5, 0.5, 1)
@@ -97,8 +88,7 @@ fractal_lacunarity = 0.1
 [node name="World" type="TileMap"]
 tile_set = SubResource("TileSet_ais84")
 format = 2
-script = ExtResource("1_gh26o")
-item = SubResource("Resource_xvgf8")
+script = ExtResource("8_ib7oy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -108,13 +98,15 @@ enabled = false
 visible = false
 texture = SubResource("NoiseTexture2D_53tmy")
 
-[node name="Player" parent="." instance=ExtResource("6_6uwkx")]
+[node name="Player" parent="." instance=ExtResource("11_iomqm")]
 position = Vector2(169, -142)
 interactive_range = 100.0
 
 [node name="WorldGenerator" type="Node" parent="." node_paths=PackedStringArray("world")]
-script = ExtResource("7_tdfk3")
+script = ExtResource("12_imxky")
 world = NodePath("..")
 terrain_noise = SubResource("FastNoiseLite_30ubq")
 caves_noise = SubResource("FastNoiseLite_kx7j1")
 ores_noise = SubResource("FastNoiseLite_6jyg8")
+
+[node name="BuildBlockingBodiesManager" type="Node" parent="."]

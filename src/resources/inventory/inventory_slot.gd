@@ -2,7 +2,10 @@ class_name InventorySlot
 extends Resource
 
 
-var counted_item: CountedItem = CountedItem.new()
+var counted_item: CountedItem = CountedItem.new():
+	set(value):
+		counted_item = value
+		emit_changed()
 
 @export var item: Item:
 	get:

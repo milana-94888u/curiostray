@@ -15,11 +15,26 @@ signal pick_one_requested(from: InventorySlot)
 
 func apply_slot(new_slot: InventorySlot) -> void:
 	inventory_slot = new_slot
+	tooltip_text = ""
 	if not is_node_ready():
 		await ready
 	if not is_instance_valid(inventory_slot):
 		return
+	if not inventory_slot.changed.is_connected(apply_slot):
+		inventory_slot.changed.connect(apply_slot.bind(inventory_slot))
 	slot_display.counted_item = inventory_slot.counted_item
+	if is_instance_valid(inventory_slot.item):
+		tooltip_text = "present"
+
+
+func _make_custom_tooltip(_for_text: String) -> Object:
+	if not is_instance_valid(inventory_slot):
+		return null
+	if not is_instance_valid(inventory_slot.item):
+		return null
+	var result := Label.new()
+	result.text = "%s (%d)" % [inventory_slot.item.name, inventory_slot.amount]
+	return result
 
 
 func _on_gui_input(event: InputEvent) -> void:

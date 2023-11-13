@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=20 format=3 uid="uid://mf5tlynfdkjk"]
 
 [ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="1_mgp0s"]
 [ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="2_nhjiy"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://src/scenes/world/world.gd" id="8_ib7oy"]
 [ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="11_iomqm"]
 [ext_resource type="Script" path="res://src/scenes/world/BuildBlockingBodiesManager.gd" id="11_ykvhv"]
-[ext_resource type="PackedScene" uid="uid://ixkwfi3tpv32" path="res://src/scenes/world/building.tscn" id="12_ilfws"]
 [ext_resource type="Script" path="res://src/scenes/world/WorldGenerator.gd" id="12_imxky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6ptp"]
@@ -114,7 +113,3 @@ ores_noise = SubResource("FastNoiseLite_6jyg8")
 [node name="BuildBlockingBodiesManager" type="Node" parent="." node_paths=PackedStringArray("world")]
 script = ExtResource("11_ykvhv")
 world = NodePath("..")
-
-[node name="Building" parent="." instance=ExtResource("12_ilfws")]
-modulate = Color(1, 1, 1, 0.313726)
-position = Vector2(476, -171)

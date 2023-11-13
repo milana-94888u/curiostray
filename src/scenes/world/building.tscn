@@ -3,20 +3,19 @@
 [ext_resource type="Script" path="res://src/utils/build_blocker.gd" id="1_myx1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q843q"]
-size = Vector2(72, 78)
+size = Vector2(128, 96)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlf7e"]
+size = Vector2(128, 96)
 
 [node name="Building" type="Area2D"]
+modulate = Color(1, 1, 1, 0.466667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(26, 29)
 shape = SubResource("RectangleShape2D_q843q")
 
 [node name="BuildBlocker" type="Node" parent="CollisionShape2D"]
 script = ExtResource("1_myx1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(26, 29)
-scale = Vector2(72, 78)
 texture = SubResource("PlaceholderTexture2D_tlf7e")

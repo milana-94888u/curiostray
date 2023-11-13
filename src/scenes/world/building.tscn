@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ixkwfi3tpv32"]
+
+[ext_resource type="Script" path="res://src/scenes/world/building.gd" id="1_ltcfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q843q"]
+size = Vector2(72, 78)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlf7e"]
+
+[node name="Building" type="Area2D"]
+script = ExtResource("1_ltcfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, 29)
+shape = SubResource("RectangleShape2D_q843q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(26, 29)
+scale = Vector2(72, 78)
+texture = SubResource("PlaceholderTexture2D_tlf7e")

@@ -9,3 +9,6 @@ signal breaking_stopped
 
 
 signal place_block(block: InventorySlot)
+
+
+signal blocking_body_set(collision_shape: CollisionShape2D)

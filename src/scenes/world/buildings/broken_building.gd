@@ -12,10 +12,6 @@ extends Building
 @onready var repair_ask := $RepairAsk as RepairAsk
 
 
-func _ready() -> void:
-	pass
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		repair_ask.show()
@@ -27,4 +23,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_repair_ask_repaired() -> void:
-	pass # Replace with function body.
+	queue_free()

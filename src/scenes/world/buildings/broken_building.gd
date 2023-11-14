@@ -9,6 +9,9 @@ extends Building
 		repair_ask.recipe = new_recipe
 
 
+@export var switch_to: PackedScene
+
+
 @onready var repair_ask := $RepairAsk as RepairAsk
 
 
@@ -23,4 +26,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_repair_ask_repaired() -> void:
+	var replacement := switch_to.instantiate() as Building
+	replacement.position = position
+	add_sibling(replacement)
 	queue_free()

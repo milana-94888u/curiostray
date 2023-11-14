@@ -10,6 +10,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("2_h5d1u")
 needed_ingdidients = Array[Resource("res://src/resources/crafting/crafting_ingridient.gd")]([])
+switch_to = null
 
 [node name="RepairAsk" parent="." index="2" instance=ExtResource("3_wlmvc")]
 visible = false

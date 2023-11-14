@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=30 format=3 uid="uid://mf5tlynfdkjk"]
 
 [ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="1_mgp0s"]
 [ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="2_nhjiy"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="12_lthh3"]
 [ext_resource type="Script" path="res://src/resources/counted_item.gd" id="13_nk3hn"]
 [ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="14_eo0na"]
+[ext_resource type="PackedScene" uid="uid://ixkwfi3tpv32" path="res://src/scenes/world/buildings/building.tscn" id="15_c1evt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6ptp"]
 texture = ExtResource("7_n2g4n")
@@ -147,3 +148,4 @@ world = NodePath("..")
 [node name="BrokenBuilding" parent="." instance=ExtResource("12_lthh3")]
 position = Vector2(292, -46)
 needed_ingdidients = Array[ExtResource("14_eo0na")]([SubResource("Resource_gqe82"), SubResource("Resource_201cr"), SubResource("Resource_ojodu")])
+switch_to = ExtResource("15_c1evt")

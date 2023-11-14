@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=25 format=3 uid="uid://mf5tlynfdkjk"]
 
 [ext_resource type="Resource" uid="uid://b11ncgn18rgj" path="res://resources/inventory/items/dirt.tres" id="1_mgp0s"]
 [ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="2_nhjiy"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="11_iomqm"]
 [ext_resource type="Script" path="res://src/scenes/world/BuildBlockingBodiesManager.gd" id="11_ykvhv"]
 [ext_resource type="Script" path="res://src/scenes/world/WorldGenerator.gd" id="12_imxky"]
+[ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="12_lthh3"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="13_nk3hn"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="14_eo0na"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6ptp"]
 texture = ExtResource("7_n2g4n")
@@ -86,6 +89,15 @@ fractal_type = 2
 fractal_octaves = 9
 fractal_lacunarity = 0.1
 
+[sub_resource type="Resource" id="Resource_a6xu2"]
+script = ExtResource("13_nk3hn")
+item = ExtResource("2_nhjiy")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_gqe82"]
+script = ExtResource("14_eo0na")
+reqiured_item = SubResource("Resource_a6xu2")
+
 [node name="World" type="TileMap"]
 tile_set = SubResource("TileSet_ais84")
 format = 2
@@ -113,3 +125,7 @@ ores_noise = SubResource("FastNoiseLite_6jyg8")
 [node name="BuildBlockingBodiesManager" type="Node" parent="." node_paths=PackedStringArray("world")]
 script = ExtResource("11_ykvhv")
 world = NodePath("..")
+
+[node name="BrokenBuilding" parent="." instance=ExtResource("12_lthh3")]
+position = Vector2(292, -46)
+needed_ingdidients = Array[ExtResource("14_eo0na")]([SubResource("Resource_gqe82")])

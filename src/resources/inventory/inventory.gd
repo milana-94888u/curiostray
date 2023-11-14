@@ -59,11 +59,15 @@ func collect_item(counted_item: CountedItem) -> void:
 			return
 
 
+func consume_ingridients(ingridients: Array[CrafringIngridient]) -> void:
+	for ingdirient in ingridients:
+		collect_item(ingdirient.reqiured_item)
+
+
 func craft(recipe: CraftingRecipe) -> CountedItem:
 	if not can_be_crafted(recipe):
 		return null
-	for ingdirient in recipe.ingridients:
-		collect_item(ingdirient.reqiured_item)
+	consume_ingridients(recipe.ingridients)
 	return recipe.result
 
 

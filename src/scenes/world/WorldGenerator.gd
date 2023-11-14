@@ -43,7 +43,7 @@ func generate_mineable():
 
 
 func set_main_building() -> void:
-	var building := preload("res://src/scenes/world/building.tscn").instantiate() as Area2D
+	var building := preload("res://src/scenes/world/buildings/building.tscn").instantiate() as Area2D
 	var left_offset := roundi(terrain_noise.get_noise_1d(-4) * 5)
 	var right_offset := roundi(terrain_noise.get_noise_1d(3) * 5)
 	var total_level := int(float(left_offset + right_offset) * 0.5) # mean

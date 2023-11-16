@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc1l5oaeqg2ft"]
+
+[ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="1_wnla4"]
+
+[node name="BrokenFirstCommunicationTower" instance=ExtResource("1_wnla4")]

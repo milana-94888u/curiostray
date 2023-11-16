@@ -12,7 +12,9 @@ enum BlockType {
 }
 
 
+@export_group("meow")
 @export var item: Item
+@export var item2: Item
 
 
 var is_breaking := false

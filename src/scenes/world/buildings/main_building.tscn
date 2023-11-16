@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dampbnd1tj0hc"]
+
+[ext_resource type="PackedScene" uid="uid://ixkwfi3tpv32" path="res://src/scenes/world/buildings/building.tscn" id="1_qngko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4n6o"]
+size = Vector2(128, 96)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8x450"]
+size = Vector2(128, 96)
+
+[node name="MainBuilding" instance=ExtResource("1_qngko")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_n4n6o")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("PlaceholderTexture2D_8x450")

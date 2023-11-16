@@ -8,15 +8,11 @@ var pick_queue: Array[PickableItem]
 @onready var ui_canvas := $PlayerUICanvas
 
 
-@export var inventory: Inventory:
+@export var player_data: PlayerData:
 	get:
-		return Globals.player_data.player_inventory
-	set(new_inventory):
-		Globals.player_data.player_inventory = new_inventory
-
-
-func change_inventory() -> void:
-	inventory = inventory
+		return Globals.player_data
+	set(value):
+		Globals.player_data = value
 
 
 func enqueue_pick_item(pickable_item: PickableItem) -> void:
@@ -64,11 +60,11 @@ func try_picks() -> void:
 	pick_queue = pick_queue.filter(func(pickable_item): return is_instance_valid(pickable_item)) as Array[PickableItem]
 	for pickable_item in pick_queue:
 		var pick_amount := mini(
-			inventory.get_pickable_amount(pickable_item.item),
+			player_data.player_inventory.get_pickable_amount(pickable_item.item),
 			pickable_item.amount,
 		)
 		if pick_amount:
-			inventory.pick_item_with_remainder(pickable_item.item, pick_amount)
+			player_data.player_inventory.pick_item_with_remainder(pickable_item.item, pick_amount)
 			pickable_item.amount -= pick_amount
 			if pickable_item.amount < 1:
 				pickable_item.queue_free()

@@ -1,23 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ixkwfi3tpv32"]
+[gd_scene load_steps=3 format=3 uid="uid://ixkwfi3tpv32"]
 
 [ext_resource type="Script" path="res://src/scenes/world/buildings/building.gd" id="1_3lo62"]
 [ext_resource type="Script" path="res://src/utils/build_blocker.gd" id="1_vc55v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q843q"]
-size = Vector2(128, 96)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlf7e"]
-size = Vector2(128, 96)
-
 [node name="Building" type="Area2D"]
-modulate = Color(1, 1, 1, 0.466667)
+z_index = -1
 script = ExtResource("1_3lo62")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_q843q")
 
 [node name="BuildBlocker" type="Node" parent="CollisionShape2D"]
 script = ExtResource("1_vc55v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_tlf7e")

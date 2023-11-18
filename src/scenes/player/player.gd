@@ -5,6 +5,10 @@ extends CharacterBody2D
 var pick_queue: Array[PickableItem]
 
 
+@onready var left_raycast := $LeftRayCast as RayCast2D
+@onready var right_raycast := $RightRayCast as RayCast2D
+
+
 @onready var ui_canvas := $PlayerUICanvas
 
 

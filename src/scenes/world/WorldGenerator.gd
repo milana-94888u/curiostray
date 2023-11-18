@@ -19,7 +19,7 @@ func _ready() -> void:
 	if not world.is_node_ready():
 		await world.ready
 	generate_level()
-	generate_mineable()
+	generate_ores()
 	set_main_building()
 
 
@@ -34,11 +34,12 @@ func generate_level():
 				world.set_block(x, y)
 
 
-func generate_mineable():
+func generate_ores():
 	for x in range(-width, width):
 		for y in range(depth):
 			if world.get_cell_atlas_coords(0, Vector2i(x, y)) == Vector2i.ZERO:
 				var relative_depth := float(y) / float(depth)
+				var copper_ore_chance
 				var cell_value := (ores_noise.get_noise_2d(x, y)) * relative_depth
 				world.set_block(x, y, floori(cell_value * 6.0))
 
@@ -51,8 +52,12 @@ func flatten_area_with_level(begin_x: int, end_x: int) -> int:
 		var offset := roundi(terrain_noise.get_noise_1d(x) * 5)
 		for y in range(offset, total_level):
 			world.erase_cell(0, Vector2(x, y))
-		for y in range(total_level, offset + 15):
+		for y in range(total_level + 3, offset + 15):
 			world.set_block(x, y)
+	for y in range(total_level, total_level + 3):
+		var offset := y - total_level
+		for x in range(begin_x - offset, end_x + offset + 1):
+			world.set_block(x, y, World.BlockType.BRICK)
 	return total_level
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=16 format=3 uid="uid://mf5tlynfdkjk"]
 
 [ext_resource type="Texture2D" uid="uid://d03au3s73ihrh" path="res://assets/sprites/tilesets/tileset.png" id="1_r6uo1"]
 [ext_resource type="Script" path="res://src/scenes/world/world.gd" id="8_ib7oy"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="11_iomqm"]
 [ext_resource type="Script" path="res://src/scenes/world/BuildBlockingBodiesManager.gd" id="11_ykvhv"]
 [ext_resource type="Script" path="res://src/scenes/world/WorldGenerator.gd" id="12_imxky"]
-[ext_resource type="PackedScene" uid="uid://dc1l5oaeqg2ft" path="res://src/scenes/world/buildings/broken_first_communication_tower.tscn" id="13_8rq8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbnwn"]
 texture = ExtResource("1_r6uo1")
@@ -31,6 +30,10 @@ texture = ExtResource("1_r6uo1")
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_ais84"]
 physics_layer_0/collision_layer = 1
@@ -88,7 +91,6 @@ texture = SubResource("NoiseTexture2D_53tmy")
 
 [node name="Player" parent="." instance=ExtResource("11_iomqm")]
 position = Vector2(169, -142)
-interactive_range = 100.0
 
 [node name="WorldGenerator" type="Node" parent="." node_paths=PackedStringArray("world")]
 script = ExtResource("12_imxky")
@@ -101,9 +103,6 @@ main_building_scene = ExtResource("11_5wtg1")
 [node name="BuildBlockingBodiesManager" type="Node" parent="." node_paths=PackedStringArray("world")]
 script = ExtResource("11_ykvhv")
 world = NodePath("..")
-
-[node name="BrokenFirstCommunicationTower" parent="." instance=ExtResource("13_8rq8i")]
-position = Vector2(167, -64)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100

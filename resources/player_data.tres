@@ -95,3 +95,5 @@ slots = Array[ExtResource("2_qcuke")]([SubResource("Resource_kqi41"), SubResourc
 script = ExtResource("1_gccfx")
 available_crafts = Array[Resource("res://src/resources/crafting/crafring_recipe.gd")]([ExtResource("1_i4hg5"), ExtResource("2_a8aan"), ExtResource("3_84sle")])
 player_inventory = SubResource("Resource_1yx2r")
+max_energy = 1000
+energy = 1000

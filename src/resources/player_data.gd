@@ -9,8 +9,8 @@ signal no_energy
 @export var player_inventory: Inventory
 
 
-@export var max_energy := 100
-@export var energy := 100:
+@export var max_energy := 1000
+@export var energy := 1000:
 	set(value):
 		if value > max_energy:
 			return

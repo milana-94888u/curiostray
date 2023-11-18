@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxc0xkdjr21h2"]
+[gd_scene load_steps=12 format=3 uid="uid://cxc0xkdjr21h2"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_whao4"]
 [ext_resource type="Texture2D" uid="uid://cjq5bbiyigs8n" path="res://assets/sprites/player/robot.png" id="2_2txef"]
 [ext_resource type="PackedScene" uid="uid://dtbnv1364eg4o" path="res://src/scenes/player/drill_ray.tscn" id="3_14438"]
 [ext_resource type="Script" path="res://src/utils/fsm/finite_state_machine.gd" id="6_dq17m"]
+[ext_resource type="Script" path="res://src/scenes/player/IdleState.gd" id="7_gagyc"]
 [ext_resource type="Script" path="res://src/scenes/player/BlockPlaceState.gd" id="7_hwf27"]
+[ext_resource type="Script" path="res://src/scenes/player/HorizontalMoveState.gd" id="8_1wqlr"]
 [ext_resource type="Script" path="res://src/scenes/player/DrillState.gd" id="8_c7iog"]
 [ext_resource type="PackedScene" uid="uid://wn0vcrxl4vi7" path="res://src/scenes/ui/player/player_ui_canvas.tscn" id="9_kbmhq"]
+[ext_resource type="Script" path="res://src/scenes/player/FlyState.gd" id="9_t8op0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm25p"]
 size = Vector2(48, 24)
@@ -14,6 +17,7 @@ size = Vector2(48, 24)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_whao4")
+interactive_range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2txef")
@@ -39,7 +43,29 @@ script = ExtResource("8_c7iog")
 player = NodePath("../..")
 drill_ray = NodePath("../../DrillRay")
 
+[node name="MoveFSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_dq17m")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="MoveFSM" node_paths=PackedStringArray("player")]
+script = ExtResource("7_gagyc")
+player = NodePath("../..")
+
+[node name="HorizontalMoveState" type="Node" parent="MoveFSM"]
+script = ExtResource("8_1wqlr")
+
+[node name="FlyState" type="Node" parent="MoveFSM"]
+script = ExtResource("9_t8op0")
+
 [node name="PlayerUICanvas" parent="." instance=ExtResource("9_kbmhq")]
+
+[node name="LeftRayCast" type="RayCast2D" parent="."]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 16)
+
+[node name="RightRayCast" type="RayCast2D" parent="."]
+position = Vector2(16, 0)
+target_position = Vector2(0, 16)
 
 [connection signal="set_drill" from="PlayerUICanvas" to="." method="_on_player_ui_canvas_set_drill"]
 [connection signal="set_usable_slot" from="PlayerUICanvas" to="." method="_on_player_ui_canvas_set_usable_slot"]

@@ -21,3 +21,14 @@ func shape_to_tiles(shape: CollisionShape2D) -> Array[Vector2i]:
 		for y in range(topleft.y, bottomright.y + 1):
 			result.append(Vector2i(x, y))
 	return result
+
+
+func get_all_blocking() -> Array[Vector2i]:
+	var result: Array[Vector2i] = []
+	for shape in blocking_shapes:
+		result.append_array(shape_to_tiles(shape))
+	return result
+
+
+func can_be_placed(coords: Vector2i) -> bool:
+	return not coords in get_all_blocking()

@@ -1,5 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc1l5oaeqg2ft"]
+[gd_scene load_steps=10 format=3 uid="uid://dc1l5oaeqg2ft"]
 
 [ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="1_wnla4"]
+[ext_resource type="Resource" uid="uid://dd4g64l2uf5t1" path="res://resources/inventory/items/copper.tres" id="2_mh0ub"]
+[ext_resource type="PackedScene" uid="uid://b3hfy1gqp2jv5" path="res://src/scenes/world/buildings/communication_tower.tscn" id="2_v66dp"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="3_c83ml"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="4_dkll3"]
+
+[sub_resource type="Resource" id="Resource_jswtf"]
+script = ExtResource("3_c83ml")
+item = ExtResource("2_mh0ub")
+amount = 4
+
+[sub_resource type="Resource" id="Resource_e7rpg"]
+script = ExtResource("4_dkll3")
+reqiured_item = SubResource("Resource_jswtf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht34m"]
+size = Vector2(64, 128)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b63tl"]
+size = Vector2(64, 128)
 
 [node name="BrokenFirstCommunicationTower" instance=ExtResource("1_wnla4")]
+needed_ingdidients = Array[ExtResource("4_dkll3")]([SubResource("Resource_e7rpg")])
+switch_to = ExtResource("2_v66dp")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_ht34m")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("PlaceholderTexture2D_b63tl")
+
+[node name="RepairAsk" parent="." index="2"]
+z_index = 2

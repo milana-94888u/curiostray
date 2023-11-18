@@ -9,12 +9,8 @@ enum BlockType {
 	GOLD,
 	SILICAT,
 	ENERGY,
+	STEEL,
 }
-
-
-@export_group("meow")
-@export var item: Item
-@export var item2: Item
 
 
 var is_breaking := false
@@ -76,8 +72,7 @@ func _physics_process(delta: float) -> void:
 			breaking_progress_map[coords] += 2 * delta
 		else:
 			breaking_progress_map[coords] = delta
-		if breaking_progress_map[coords] >= 0.05:
-#			set_cell(0, coords)
+		if breaking_progress_map[coords] >= 0.5:
 			var dropped_item := preload("res://src/scenes/world/entities/pickable_item.tscn").instantiate()
 			dropped_item.position = map_to_local(coords)
 			dropped_item.item = get_cell_tile_data(0, coords).get_custom_data("drop")

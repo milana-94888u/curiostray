@@ -26,7 +26,7 @@ func _ready() -> void:
 func generate_level():
 	for x in range(-width, width):
 		var offset := roundi(terrain_noise.get_noise_1d(x) * 5)
-		world.set_block(x, offset, world.BlockType.COPPER)
+		world.set_block(x, offset)
 		for y in range(offset + 1, offset + 15):
 			world.set_block(x, y)
 		for y in range(offset + 15, depth):

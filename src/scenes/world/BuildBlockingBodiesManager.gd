@@ -8,7 +8,11 @@ var blocking_shapes: Array[CollisionShape2D]
 
 
 func _ready() -> void:
-	BlockBreakManager.blocking_body_set.connect(shape_to_tiles)
+	BlockBreakManager.blocking_body_set.connect(add_shape)
+
+
+func add_shape(shape: CollisionShape2D) -> void:
+	blocking_shapes.append(shape)
 
 
 func shape_to_tiles(shape: CollisionShape2D) -> Array[Vector2i]:

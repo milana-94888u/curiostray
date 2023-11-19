@@ -9,7 +9,7 @@ extends Node
 @export var terrain_noise: Noise
 @export var caves_noise: Noise
 @export var ores_noise: Noise
-
+@export var energy_noise: Noise
 
 @export var main_building_scene: PackedScene
 
@@ -20,10 +20,12 @@ func _ready() -> void:
 		await world.ready
 	generate_level()
 	generate_ores()
+	generate_energy()
 	set_main_building()
+	world.add_child(preload("res://src/scenes/player/player.tscn").instantiate())
 
 
-func generate_level():
+func generate_level() -> void:
 	for x in range(-width, width):
 		var offset := roundi(terrain_noise.get_noise_1d(x) * 5)
 		world.set_block(x, offset)
@@ -34,14 +36,28 @@ func generate_level():
 				world.set_block(x, y)
 
 
-func generate_ores():
+func generate_ores() -> void:
+	for x in range(-width, width):
+		for y in range(15, depth):
+			if world.get_cell_atlas_coords(0, Vector2i(x, y)) == Vector2i.ZERO:
+				var relative_depth := float(y) / float(depth)
+				var spawn_ore := ores_noise.get_noise_2d(x, y) > 0.4
+				if not spawn_ore:
+					continue
+				if relative_depth < 0.33:
+					world.set_block(x, y, World.BlockType.COPPER_ORE)
+				elif relative_depth < 0.66:
+					world.set_block(x, y, World.BlockType.IRON_ORE)
+				else:
+					world.set_block(x, y, World.BlockType.GOLD_ORE)
+
+
+func generate_energy() -> void:
 	for x in range(-width, width):
 		for y in range(depth):
 			if world.get_cell_atlas_coords(0, Vector2i(x, y)) == Vector2i.ZERO:
-				var relative_depth := float(y) / float(depth)
-				var copper_ore_chance
-				var cell_value := (ores_noise.get_noise_2d(x, y)) * relative_depth
-				world.set_block(x, y, floori(cell_value * 6.0))
+				if energy_noise.get_noise_2d(x, y) < -0.3:
+					world.set_block(x, y, World.BlockType.ENERGY_CRYSTAL)
 
 
 func flatten_area_with_level(begin_x: int, end_x: int) -> int:

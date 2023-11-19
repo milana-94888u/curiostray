@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=28 format=3 uid="uid://da7sfr64nat0b"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=25 format=3 uid="uid://da7sfr64nat0b"]
 
 [ext_resource type="Script" path="res://src/resources/player_data.gd" id="1_gccfx"]
-[ext_resource type="Resource" uid="uid://b8tlc2ntrmfch" path="res://resources/crafting/test1.tres" id="1_i4hg5"]
 [ext_resource type="Script" path="res://src/resources/inventory/inventory.gd" id="1_m61qy"]
-[ext_resource type="Resource" uid="uid://bpj5s5byj7gd" path="res://resources/crafting/test3.tres" id="2_a8aan"]
 [ext_resource type="Script" path="res://src/resources/inventory/inventory_slot.gd" id="2_qcuke"]
-[ext_resource type="Resource" uid="uid://c45e2sukato17" path="res://resources/crafting/test2.tres" id="3_84sle"]
 
 [sub_resource type="Resource" id="Resource_kqi41"]
 script = ExtResource("2_qcuke")
@@ -93,7 +90,7 @@ slots = Array[ExtResource("2_qcuke")]([SubResource("Resource_kqi41"), SubResourc
 
 [resource]
 script = ExtResource("1_gccfx")
-available_crafts = Array[Resource("res://src/resources/crafting/crafring_recipe.gd")]([ExtResource("1_i4hg5"), ExtResource("2_a8aan"), ExtResource("3_84sle")])
+available_crafts = Array[Resource("res://src/resources/crafting/crafring_recipe.gd")]([])
 player_inventory = SubResource("Resource_1yx2r")
 max_energy = 1000
 energy = 1000

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxc0xkdjr21h2"]
+[gd_scene load_steps=16 format=3 uid="uid://cxc0xkdjr21h2"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_whao4"]
 [ext_resource type="Texture2D" uid="uid://cjq5bbiyigs8n" path="res://assets/sprites/player/robot.png" id="2_2txef"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://wn0vcrxl4vi7" path="res://src/scenes/ui/player/player_ui_canvas.tscn" id="9_kbmhq"]
 [ext_resource type="Script" path="res://src/scenes/player/FlyState.gd" id="9_t8op0"]
 [ext_resource type="Script" path="res://src/scenes/player/FallState.gd" id="10_3wiyp"]
+[ext_resource type="PackedScene" uid="uid://dldoiiaerla8s" path="res://src/scenes/player/player_addition/player_engine_fire.tscn" id="14_lb0bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm25p"]
 size = Vector2(47, 24)
@@ -78,6 +79,15 @@ target_position = Vector2(0, 16)
 [node name="RightRayCast" type="RayCast2D" parent="."]
 position = Vector2(20, 0)
 target_position = Vector2(0, 16)
+
+[node name="LeftPlayerEngineFire" parent="." instance=ExtResource("14_lb0bx")]
+position = Vector2(-12, 13)
+rotation = -2.35619
+scale = Vector2(1, 1)
+
+[node name="RightPlayerEngineFire" parent="." instance=ExtResource("14_lb0bx")]
+position = Vector2(12, 13)
+rotation = 2.35619
 
 [connection signal="fall_started" from="MoveFSM/IdleState" to="MoveFSM" method="_on_idle_state_fall_started"]
 [connection signal="fly_started" from="MoveFSM/IdleState" to="MoveFSM" method="_on_idle_state_fly_started"]

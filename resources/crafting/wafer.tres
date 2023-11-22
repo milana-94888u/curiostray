@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=9 format=3 uid="uid://c8ujkqex3yj1f"]
+
+[ext_resource type="Resource" uid="uid://c7vdph7u4ym43" path="res://resources/inventory/items/sillicat_mineral.tres" id="1_1wlc8"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafring_recipe.gd" id="1_rbmyl"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="2_lk4lv"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="3_e4dps"]
+[ext_resource type="Resource" uid="uid://bg4hhg8sl0y2q" path="res://resources/inventory/items/wafer.tres" id="4_dkaie"]
+
+[sub_resource type="Resource" id="Resource_rw5yj"]
+script = ExtResource("2_lk4lv")
+item = ExtResource("1_1wlc8")
+amount = 8
+
+[sub_resource type="Resource" id="Resource_ybnsk"]
+script = ExtResource("3_e4dps")
+reqiured_item = SubResource("Resource_rw5yj")
+
+[sub_resource type="Resource" id="Resource_vt86j"]
+script = ExtResource("2_lk4lv")
+item = ExtResource("4_dkaie")
+amount = 1
+
+[resource]
+script = ExtResource("1_rbmyl")
+ingridients = Array[ExtResource("3_e4dps")]([SubResource("Resource_ybnsk")])
+result = SubResource("Resource_vt86j")

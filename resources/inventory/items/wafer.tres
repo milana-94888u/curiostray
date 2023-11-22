@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bg4hhg8sl0y2q"]
+
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="1_fbp0p"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4deml"]
+
+[resource]
+script = ExtResource("1_fbp0p")
+icon = SubResource("PlaceholderTexture2D_4deml")
+name = "Wafer"
+categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
+max_stack = 8

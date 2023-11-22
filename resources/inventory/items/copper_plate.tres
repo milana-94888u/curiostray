@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ppsd324fu5xw"]
+
+[ext_resource type="Texture2D" uid="uid://d03au3s73ihrh" path="res://assets/sprites/tilesets/tileset.png" id="1_ebjcs"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="2_qnyhy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwe4n"]
+atlas = ExtResource("1_ebjcs")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_qnyhy")
+icon = SubResource("AtlasTexture_nwe4n")
+name = "Copper ore"
+categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
+max_stack = 8

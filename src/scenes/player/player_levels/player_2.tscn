@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx3biwxu60gk1"]
+
+[ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="1_jc348"]
+[ext_resource type="Texture2D" uid="uid://bkdoqkophonk3" path="res://assets/sprites/player/robot2.png" id="2_raono"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmoyt"]
+size = Vector2(72, 36)
+
+[node name="Player2" instance=ExtResource("1_jc348")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_raono")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_bmoyt")

@@ -13,6 +13,10 @@ var pick_queue: Array[PickableItem]
 @onready var right_raycast := $RightRayCast as RayCast2D
 
 
+@onready var left_engine := $LeftPlayerEngineFire as Sprite2D
+@onready var right_engine := $RightPlayerEngineFire as Sprite2D
+
+
 @onready var ui_canvas := $PlayerUICanvas
 
 

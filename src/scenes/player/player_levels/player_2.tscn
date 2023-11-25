@@ -13,3 +13,20 @@ texture = ExtResource("2_raono")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_bmoyt")
+
+[node name="LeftRayCast" parent="." index="7"]
+position = Vector2(-32, 0)
+target_position = Vector2(0, 22)
+
+[node name="CenterRayCast" parent="." index="8"]
+target_position = Vector2(0, 22)
+
+[node name="RightRayCast" parent="." index="9"]
+position = Vector2(32, 0)
+target_position = Vector2(0, 22)
+
+[node name="LeftPlayerEngineFire" parent="." index="10"]
+position = Vector2(-12, 17)
+
+[node name="RightPlayerEngineFire" parent="." index="11"]
+position = Vector2(12, 17)

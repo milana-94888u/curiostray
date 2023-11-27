@@ -13,6 +13,13 @@ signal fall_started
 func enter(_message = null) -> void:
 	remaining_fly_time = player.fly_time
 	player.velocity = Vector2.ZERO
+	player.left_engine.show()
+	player.right_engine.show()
+
+
+func exit() -> void:
+	player.left_engine.hide()
+	player.right_engine.hide()
 
 
 func physics_update(delta: float) -> void:

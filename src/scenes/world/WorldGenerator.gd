@@ -1,6 +1,9 @@
 extends Node
 
 
+@export var player_spawner: PlayerSpawner
+
+
 @export var width := 200
 @export var depth := 200
 
@@ -22,7 +25,6 @@ func _ready() -> void:
 	generate_ores()
 	generate_energy()
 	set_main_building()
-	world.add_child(preload("res://src/scenes/player/player.tscn").instantiate())
 
 
 func generate_level() -> void:
@@ -77,11 +79,14 @@ func flatten_area_with_level(begin_x: int, end_x: int) -> int:
 	return total_level
 
 
-func set_main_building() -> void:
-	var building := main_building_scene.instantiate() as Area2D
+func set_main_building() -> int:
 	var level := flatten_area_with_level(-4, 3)
+	player_spawner.init_level = level
+	var building := main_building_scene.instantiate() as MainBuilding
+	building.player_upgraded.connect(player_spawner.spawn_player)
 	building.position = world.map_to_local(Vector2i(0, level - 3)) - 8 * Vector2.ONE
 	world.add_child(building)
+	return level
 	
 	
 	

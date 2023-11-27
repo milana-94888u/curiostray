@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=25 format=3 uid="uid://mf5tlynfdkjk"]
 
 [ext_resource type="Resource" uid="uid://c7vdph7u4ym43" path="res://resources/inventory/items/sillicat_mineral.tres" id="1_l147k"]
 [ext_resource type="Texture2D" uid="uid://d03au3s73ihrh" path="res://assets/sprites/tilesets/tileset.png" id="1_r6uo1"]
@@ -9,8 +9,12 @@
 [ext_resource type="Script" path="res://src/scenes/world/world.gd" id="8_ib7oy"]
 [ext_resource type="Texture2D" uid="uid://ds57fv1perq8q" path="res://assets/sprites/bg.jpg" id="8_q13r6"]
 [ext_resource type="PackedScene" uid="uid://dampbnd1tj0hc" path="res://src/scenes/world/buildings/main_building.tscn" id="11_5wtg1"]
+[ext_resource type="Script" path="res://src/scenes/world/PlayerSpawner.gd" id="11_c0ecx"]
 [ext_resource type="Script" path="res://src/scenes/world/BuildBlockingBodiesManager.gd" id="11_ykvhv"]
+[ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="12_djoyi"]
 [ext_resource type="Script" path="res://src/scenes/world/WorldGenerator.gd" id="12_imxky"]
+[ext_resource type="PackedScene" uid="uid://bx3biwxu60gk1" path="res://src/scenes/player/player_levels/player_2.tscn" id="13_4w0t8"]
+[ext_resource type="PackedScene" uid="uid://cdxqc004nv6op" path="res://src/scenes/player/player_levels/player_3.tscn" id="14_f4jp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbnwn"]
 texture = ExtResource("1_r6uo1")
@@ -19,26 +23,31 @@ texture = ExtResource("1_r6uo1")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:0/0/custom_data_0 = ExtResource("1_l147k")
+0:0/0/custom_data_1 = 0.1
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0/custom_data_0 = ExtResource("2_yqrxw")
+1:0/0/custom_data_1 = 0.25
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0/custom_data_0 = ExtResource("3_rgskm")
+2:0/0/custom_data_1 = 0.5
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0/custom_data_0 = ExtResource("4_jn8ua")
+3:0/0/custom_data_1 = 0.75
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0/custom_data_0 = ExtResource("5_pfoon")
+4:0/0/custom_data_1 = 0.2
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
@@ -103,8 +112,9 @@ enabled = false
 visible = false
 texture = SubResource("NoiseTexture2D_53tmy")
 
-[node name="WorldGenerator" type="Node" parent="." node_paths=PackedStringArray("world")]
+[node name="WorldGenerator" type="Node" parent="." node_paths=PackedStringArray("player_spawner", "world")]
 script = ExtResource("12_imxky")
+player_spawner = NodePath("../PlayerSpawner")
 world = NodePath("..")
 terrain_noise = SubResource("FastNoiseLite_30ubq")
 caves_noise = SubResource("FastNoiseLite_kx7j1")
@@ -115,6 +125,11 @@ main_building_scene = ExtResource("11_5wtg1")
 [node name="BuildBlockingBodiesManager" type="Node" parent="." node_paths=PackedStringArray("world")]
 script = ExtResource("11_ykvhv")
 world = NodePath("..")
+
+[node name="PlayerSpawner" type="Node" parent="." node_paths=PackedStringArray("world")]
+script = ExtResource("11_c0ecx")
+world = NodePath("..")
+player_levels = Array[PackedScene]([ExtResource("12_djoyi"), ExtResource("13_4w0t8"), ExtResource("14_f4jp3")])
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100

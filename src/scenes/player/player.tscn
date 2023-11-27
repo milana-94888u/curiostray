@@ -16,11 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://dldoiiaerla8s" path="res://src/scenes/player/player_addition/player_engine_fire.tscn" id="14_lb0bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm25p"]
-size = Vector2(48, 24)
+size = Vector2(47, 24)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_whao4")
+fly_time = 3.0
 interactive_range = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

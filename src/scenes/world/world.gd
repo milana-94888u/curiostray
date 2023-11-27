@@ -67,11 +67,15 @@ func _physics_process(delta: float) -> void:
 		if get_cell_atlas_coords(0, coords) == Vector2i(-1, -1):
 			clean_breaking_mapping()
 			return
+		var break_time := get_cell_tile_data(0, coords).get_custom_data("break_time") as float
+		if break_time <= 0.0:
+			clean_breaking_mapping()
+			return
 		if coords in breaking_progress_map:
 			breaking_progress_map[coords] += 2 * delta
 		else:
 			breaking_progress_map[coords] = delta
-		if breaking_progress_map[coords] >= 0.05:
+		if breaking_progress_map[coords] >= break_time:
 			var dropped_item := preload("res://src/scenes/world/entities/pickable_item.tscn").instantiate()
 			dropped_item.position = map_to_local(coords)
 			dropped_item.item = get_cell_tile_data(0, coords).get_custom_data("drop")

@@ -24,3 +24,12 @@ func spawn_player(player_level: int) -> void:
 	player = player_levels[player_level - 1].instantiate() as Player
 	player.position = world.map_to_local(Vector2i(0, init_level)) - Vector2(0, 6 + 6 * player_level)
 	world.add_child(player)
+	player.player_data.no_energy.connect(respawn_player.bind(player_level))
+
+
+func respawn_player(player_level: int) -> void:
+	Globals.player_data.energy = Globals.player_data.max_energy
+	for slot in Globals.player_data.player_inventory.slots:
+		slot.empty()
+	player.queue_free()
+	spawn_player(player_level)

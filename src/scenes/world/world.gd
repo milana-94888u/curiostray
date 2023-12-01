@@ -46,6 +46,7 @@ func place_block_by_click(block_slot: InventorySlot) -> void:
 			if source.has_tile(atlas_coords):
 				if source.get_tile_data(atlas_coords, 0).get_custom_data("drop") == block:
 					set_cell(0, coords, 0, atlas_coords)
+					Sounds.place_block()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,6 +64,7 @@ func _physics_process(delta: float) -> void:
 	for coords in breaking_progress_map:
 		breaking_progress_map[coords] -= delta
 	if is_breaking:
+		Sounds.start_digging()
 		var coords := local_to_map(get_local_mouse_position())
 		if get_cell_atlas_coords(0, coords) == Vector2i(-1, -1):
 			clean_breaking_mapping()
@@ -82,4 +84,6 @@ func _physics_process(delta: float) -> void:
 			erase_cell(0, coords)
 			add_child(dropped_item)
 			breaking_progress_map.erase(coords)
+	else:
+		Sounds.stop_digging()
 	clean_breaking_mapping()

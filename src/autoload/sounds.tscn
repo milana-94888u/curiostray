@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://qul6ouuds8sk"]
+
+[ext_resource type="Script" path="res://src/autoload/sounds.gd" id="1_8tvx7"]
+[ext_resource type="AudioStream" uid="uid://cssl02j6xcymv" path="res://assets/sounds/dig.wav" id="2_cg8u1"]
+[ext_resource type="AudioStream" uid="uid://dof6xvu066v7n" path="res://assets/sounds/motion.wav" id="2_g0e3n"]
+[ext_resource type="AudioStream" uid="uid://c0bjl0qfwnj36" path="res://assets/sounds/repair.wav" id="4_8qih2"]
+[ext_resource type="AudioStream" uid="uid://cga3swlouv2g1" path="res://assets/sounds/upgrade.wav" id="5_ntah4"]
+[ext_resource type="AudioStream" uid="uid://4f1gljcsy3aq" path="res://assets/sounds/deploy.wav" id="6_21op3"]
+[ext_resource type="AudioStream" uid="uid://q4pk5igwvsfq" path="res://assets/sounds/place.wav" id="7_3l2w2"]
+
+[node name="Sounds" type="Node"]
+script = ExtResource("1_8tvx7")
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g0e3n")
+volume_db = -10.0
+
+[node name="DigSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cg8u1")
+volume_db = -10.0
+
+[node name="RepairSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8qih2")
+
+[node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ntah4")
+
+[node name="SpawnSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_21op3")
+
+[node name="PlaceBlockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3l2w2")

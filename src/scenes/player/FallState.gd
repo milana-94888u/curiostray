@@ -11,6 +11,7 @@ signal landed
 
 
 func enter(_message: Variant = null) -> void:
+	Sounds.stop_moving()
 	player.left_engine.hide()
 	player.right_engine.hide()
 	player.velocity.y = gravity

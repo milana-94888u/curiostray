@@ -27,6 +27,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_repair_ask_repaired() -> void:
+	Sounds.repair()
 	var replacement := switch_to.instantiate() as Building
 	replacement.position = position
 	add_sibling(replacement)

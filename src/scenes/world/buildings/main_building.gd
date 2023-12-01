@@ -43,5 +43,6 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_upgrade_ask_upgraded() -> void:
+	Sounds.upgrade()
 	current_level += 1
 	player_upgraded.emit(current_level)

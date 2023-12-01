@@ -11,6 +11,7 @@ signal fall_started
 
 
 func enter(_message = null) -> void:
+	Sounds.start_moving()
 	remaining_fly_time = player.fly_time
 	player.velocity = Vector2.ZERO
 	player.left_engine.show()

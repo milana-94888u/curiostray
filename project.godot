@@ -19,6 +19,7 @@ config/icon="res://assets/sprites/icons/laser_drill.png"
 
 BlockBreakManager="*res://src/autoload/block_break_manager.gd"
 Globals="*res://src/autoload/globals.gd"
+Sounds="*res://src/autoload/sounds.tscn"
 
 [display]
 

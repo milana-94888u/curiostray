@@ -15,6 +15,7 @@ var player: Player
 
 
 func spawn_player(player_level: int) -> void:
+	Sounds.spawn()
 	$CanvasLayer/NewLevelLabel.text = "Player level level %d" % player_level
 	var tween := get_tree().create_tween().bind_node(self)
 	tween.tween_property($CanvasLayer/NewLevelLabel, "modulate:a", 1.0, 0.5)

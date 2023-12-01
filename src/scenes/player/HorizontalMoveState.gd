@@ -10,6 +10,7 @@ signal fly_started
 
 
 func enter(message = null) -> void:
+	Sounds.start_moving()
 	player.velocity = Vector2(message as float, 0) * player.move_speed
 
 

@@ -1,8 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://0ody4b1ph7sl"]
+[gd_scene load_steps=14 format=3 uid="uid://0ody4b1ph7sl"]
 
 [ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="1_sx51h"]
 [ext_resource type="PackedScene" uid="uid://dd7veao8gguxo" path="res://src/scenes/world/buildings/landing_pad.tscn" id="2_2aae4"]
+[ext_resource type="Resource" uid="uid://dd5tfuqy7sth1" path="res://resources/inventory/items/microscheme.tres" id="2_s506y"]
 [ext_resource type="Texture2D" uid="uid://ixrbo3u034wt" path="res://assets/sprites/buildings/broken_landing_pad.png" id="3_4hqsc"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="3_8lxiq"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="4_lxux0"]
+[ext_resource type="Resource" uid="uid://baak4n448nw0d" path="res://resources/inventory/items/golden_plate.tres" id="5_aagh6"]
+
+[sub_resource type="Resource" id="Resource_ngte4"]
+script = ExtResource("3_8lxiq")
+item = ExtResource("2_s506y")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_b1d5v"]
+script = ExtResource("4_lxux0")
+reqiured_item = SubResource("Resource_ngte4")
+
+[sub_resource type="Resource" id="Resource_lgytq"]
+script = ExtResource("3_8lxiq")
+item = ExtResource("5_aagh6")
+amount = 5
+
+[sub_resource type="Resource" id="Resource_31je4"]
+script = ExtResource("4_lxux0")
+reqiured_item = SubResource("Resource_lgytq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr1e6"]
 size = Vector2(320, 48)
@@ -19,6 +41,7 @@ animations = [{
 }]
 
 [node name="BrokenLandingPad" instance=ExtResource("1_sx51h")]
+needed_ingdidients = Array[ExtResource("4_lxux0")]([SubResource("Resource_b1d5v"), SubResource("Resource_31je4")])
 switch_to = ExtResource("2_2aae4")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -26,3 +49,9 @@ shape = SubResource("RectangleShape2D_qr1e6")
 
 [node name="BuildingSprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_ow1mn")
+
+[node name="RepairAsk" parent="." index="2"]
+offset_left = -160.0
+offset_top = -24.0
+offset_right = 160.0
+offset_bottom = 24.0

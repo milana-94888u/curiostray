@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_qnyhy")
 icon = ExtResource("1_7ieas")
-name = "Copper ore"
+name = "Copper plate"
 categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
-max_stack = 8
+max_stack = 99

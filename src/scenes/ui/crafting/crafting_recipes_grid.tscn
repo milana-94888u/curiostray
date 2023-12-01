@@ -9,3 +9,5 @@ offset_bottom = 40.0
 columns = 10
 script = ExtResource("1_rw7yq")
 crafting_recipe_slot_scene = ExtResource("2_0l272")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

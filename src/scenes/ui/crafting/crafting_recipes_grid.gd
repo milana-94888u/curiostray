@@ -40,3 +40,7 @@ func apply_crafts() -> void:
 		child.is_available = inventory.can_be_crafted(crafting_recipe)
 		child.pressed.connect(func(): craft_requested.emit(crafting_recipe))
 		add_child(child)
+
+
+func _on_visibility_changed() -> void:
+	apply_crafts()

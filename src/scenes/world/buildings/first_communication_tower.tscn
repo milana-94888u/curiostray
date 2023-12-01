@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://b3hfy1gqp2jv5"]
+[gd_scene load_steps=56 format=3 uid="uid://b3hfy1gqp2jv5"]
 
 [ext_resource type="PackedScene" uid="uid://ixkwfi3tpv32" path="res://src/scenes/world/buildings/building.tscn" id="1_pphon"]
+[ext_resource type="Resource" uid="uid://c8ujkqex3yj1f" path="res://resources/crafting/wafer.tres" id="2_8dhiv"]
 [ext_resource type="Texture2D" uid="uid://dow8hcxx5nwq7" path="res://assets/sprites/buildings/first_communication_tower.png" id="2_70ot6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olghw"]
@@ -365,6 +366,7 @@ animations = [{
 }]
 
 [node name="FirstCommunicationTower" instance=ExtResource("1_pphon")]
+unlocked_recipe = ExtResource("2_8dhiv")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_olghw")

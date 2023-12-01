@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dd5tfuqy7sth1"]
+
+[ext_resource type="Texture2D" uid="uid://bq4aiy51goe3s" path="res://assets/sprites/icons/microscheme.png" id="1_4unhh"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="2_4uigm"]
+
+[resource]
+script = ExtResource("2_4uigm")
+icon = ExtResource("1_4unhh")
+name = "Microscheme"
+categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
+max_stack = 99

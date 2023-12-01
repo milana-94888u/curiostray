@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_b4rgf")
 icon = ExtResource("1_jpnhb")
-name = "Gold ore"
+name = "Golden plate"
 categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
-max_stack = 8
+max_stack = 99

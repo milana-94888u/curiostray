@@ -8,4 +8,4 @@ script = ExtResource("1_tnjrg")
 icon = ExtResource("1_bvx17")
 name = "Sillicat mineral"
 categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
-max_stack = 8
+max_stack = 99

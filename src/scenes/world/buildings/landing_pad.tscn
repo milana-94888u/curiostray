@@ -435,3 +435,4 @@ shape = SubResource("RectangleShape2D_fnq1b")
 [node name="BuildingSprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_n14c7")
 autoplay = "default"
+frame_progress = 0.433365

@@ -1,7 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://chxdswiypfqbb"]
+[gd_scene load_steps=56 format=3 uid="uid://chxdswiypfqbb"]
 
 [ext_resource type="PackedScene" uid="uid://ixkwfi3tpv32" path="res://src/scenes/world/buildings/building.tscn" id="1_b2m4i"]
 [ext_resource type="Texture2D" uid="uid://b127bhr4ivpn7" path="res://assets/sprites/buildings/second_communication_tower.png" id="2_fc2ir"]
+[ext_resource type="Resource" uid="uid://61to5id0sg7c" path="res://resources/crafting/microscheme.tres" id="2_so0h4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s16xn"]
 size = Vector2(64, 160)
@@ -365,6 +366,7 @@ animations = [{
 }]
 
 [node name="SecondCommunicationTower" instance=ExtResource("1_b2m4i")]
+unlocked_recipe = ExtResource("2_so0h4")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_s16xn")

@@ -28,9 +28,9 @@ func _ready() -> void:
 	generate_ores()
 	generate_energy()
 	set_main_building()
-	set_broken_first_communication_tower(30)
-	set_broken_second_communication_tower(50)
-	set_broken_landing_pad(-30)
+	set_broken_first_communication_tower(50)
+	set_broken_second_communication_tower(160)
+	set_broken_landing_pad(-80)
 
 
 func generate_level() -> void:

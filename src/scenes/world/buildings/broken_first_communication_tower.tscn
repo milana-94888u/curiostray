@@ -41,3 +41,9 @@ shape = SubResource("RectangleShape2D_0b61l")
 sprite_frames = SubResource("SpriteFrames_s2mb7")
 autoplay = "default"
 frame_progress = 0.126472
+
+[node name="RepairAsk" parent="." index="2"]
+offset_left = -24.0
+offset_top = -64.0
+offset_right = 24.0
+offset_bottom = 64.0

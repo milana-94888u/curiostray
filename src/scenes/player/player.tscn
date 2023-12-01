@@ -43,6 +43,9 @@ shape = SubResource("RectangleShape2D_cm25p")
 script = ExtResource("3_md54b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -3200
+limit_right = 3200
+limit_bottom = 3200
 
 [node name="DrillRay" parent="." instance=ExtResource("3_14438")]
 points = PackedVector2Array(0, 0, 64, 0)

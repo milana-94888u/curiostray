@@ -72,9 +72,9 @@ func _physics_process(delta: float) -> void:
 			clean_breaking_mapping()
 			return
 		if coords in breaking_progress_map:
-			breaking_progress_map[coords] += 2 * delta
+			breaking_progress_map[coords] += 2 * delta * $PlayerSpawner.player.breaking_boost
 		else:
-			breaking_progress_map[coords] = delta
+			breaking_progress_map[coords] = delta * $PlayerSpawner.player.breaking_boost
 		if breaking_progress_map[coords] >= break_time:
 			var dropped_item := preload("res://src/scenes/world/entities/pickable_item.tscn").instantiate()
 			dropped_item.position = map_to_local(coords)

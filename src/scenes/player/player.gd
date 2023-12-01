@@ -7,6 +7,7 @@ var pick_queue: Array[PickableItem]
 
 @export var move_speed := 300.0
 @export var fly_time := 3.0
+@export var breaking_boost := 1.0
 
 
 @export var blocks: Array[Item]

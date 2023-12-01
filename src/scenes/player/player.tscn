@@ -29,7 +29,8 @@ size = Vector2(16, 4)
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_whao4")
-fly_time = 1.5
+move_speed = 200.0
+fly_time = 1.2
 blocks = Array[Resource("res://src/resources/inventory/item.gd")]([ExtResource("2_m1ge3"), ExtResource("3_k8bpm"), ExtResource("4_wf3ap"), ExtResource("5_cu4fv")])
 interactive_range = 100.0
 

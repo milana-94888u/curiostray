@@ -10,6 +10,10 @@ size = Vector2(71, 36)
 size = Vector2(24, 4)
 
 [node name="Player2" instance=ExtResource("1_jc348")]
+move_speed = 300.0
+fly_time = 1.5
+breaking_boost = 1.5
+interactive_range = 120.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_raono")

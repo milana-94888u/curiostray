@@ -32,4 +32,5 @@ func physics_update(_delta: float) -> void:
 		player.right_engine.show()
 	else:
 		player.left_engine.show()
+	player.player_data.energy -= 1
 	player.move_and_slide()

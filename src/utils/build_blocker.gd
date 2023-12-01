@@ -7,3 +7,4 @@ func _ready() -> void:
 	if not collision_shape.is_node_ready():
 		await collision_shape.ready
 	BlockBreakManager.blocking_body_set.emit(collision_shape)
+	collision_shape.tree_exiting.connect(func(): BlockBreakManager.blocking_body_removed.emit(collision_shape))

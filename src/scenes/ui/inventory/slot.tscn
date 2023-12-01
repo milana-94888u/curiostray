@@ -13,5 +13,7 @@ script = ExtResource("1_6vsl0")
 
 [node name="SlotDisplay" parent="." instance=ExtResource("2_jq3ou")]
 layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

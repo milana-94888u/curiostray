@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdxqc004nv6op"]
+[gd_scene load_steps=5 format=3 uid="uid://cdxqc004nv6op"]
 
 [ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="1_casik"]
 [ext_resource type="Texture2D" uid="uid://etkdk0svynj8" path="res://assets/sprites/player/robot3.png" id="2_b21un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mai5"]
-size = Vector2(96, 48)
+size = Vector2(95, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neu0u"]
+size = Vector2(32, 4)
 
 [node name="Player3" instance=ExtResource("1_casik")]
 
@@ -14,19 +17,16 @@ texture = ExtResource("2_b21un")
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_1mai5")
 
-[node name="LeftRayCast" parent="." index="7"]
-position = Vector2(-40, 0)
-target_position = Vector2(0, 28)
-
-[node name="CenterRayCast" parent="." index="8"]
-target_position = Vector2(0, 28)
-
-[node name="RightRayCast" parent="." index="9"]
-position = Vector2(40, 0)
-target_position = Vector2(0, 28)
-
-[node name="LeftPlayerEngineFire" parent="." index="10"]
+[node name="LeftPlayerEngineFire" parent="." index="7"]
 position = Vector2(-12, 24)
 
-[node name="RightPlayerEngineFire" parent="." index="11"]
+[node name="RightPlayerEngineFire" parent="." index="8"]
 position = Vector2(12, 24)
+
+[node name="LeftShapeCast" parent="." index="9"]
+position = Vector2(-31.5, 24)
+shape = SubResource("RectangleShape2D_neu0u")
+
+[node name="RightShapeCast" parent="." index="10"]
+position = Vector2(31.5, 24)
+shape = SubResource("RectangleShape2D_neu0u")

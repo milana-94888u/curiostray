@@ -19,14 +19,16 @@ func exit() -> void:
 
 
 func physics_update(_delta: float) -> void:
+	player.left_engine.hide()
+	player.right_engine.hide()
 	if not player.is_on_floor():
 		fall_started.emit()
 		return
-	if player.left_raycast.is_colliding() and not player.right_raycast.is_colliding():
+	if player.left_shapecast.is_colliding() and not player.right_shapecast.is_colliding():
 		player.right_engine.show()
 		player.left_engine.hide()
 		player.player_data.energy -= 1
-	elif player.right_raycast.is_colliding() and not player.left_raycast.is_colliding():
+	elif player.right_shapecast.is_colliding() and not player.left_shapecast.is_colliding():
 		player.left_engine.show()
 		player.right_engine.hide()
 		player.player_data.energy -= 1

@@ -12,3 +12,4 @@ signal place_block(block: InventorySlot)
 
 
 signal blocking_body_set(collision_shape: CollisionShape2D)
+signal blocking_body_removed(collision_shape: CollisionShape2D)

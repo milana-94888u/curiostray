@@ -29,4 +29,5 @@ func physics_update(delta: float) -> void:
 	else:
 		fall_started.emit()
 	remaining_fly_time -= delta
+	player.player_data.energy -= 2
 	player.move_and_slide()

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://baak4n448nw0d"]
+
+[ext_resource type="Texture2D" uid="uid://drfar86j0jf7r" path="res://assets/sprites/icons/golden_plate.png" id="1_jpnhb"]
+[ext_resource type="Script" path="res://src/resources/inventory/item.gd" id="2_b4rgf"]
+
+[resource]
+script = ExtResource("2_b4rgf")
+icon = ExtResource("1_jpnhb")
+name = "Gold ore"
+categories = Array[Resource("res://src/resources/inventory/item_category.gd")]([])
+max_stack = 8

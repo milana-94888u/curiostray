@@ -1,7 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://ueoasms1xhgm"]
+[gd_scene load_steps=11 format=3 uid="uid://ueoasms1xhgm"]
 
 [ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="1_r7527"]
 [ext_resource type="PackedScene" uid="uid://b3hfy1gqp2jv5" path="res://src/scenes/world/buildings/first_communication_tower.tscn" id="2_5liyj"]
+[ext_resource type="Script" path="res://src/resources/counted_item.gd" id="2_biknw"]
+[ext_resource type="Resource" uid="uid://ppsd324fu5xw" path="res://resources/inventory/items/copper_plate.tres" id="2_up35j"]
+[ext_resource type="Script" path="res://src/resources/crafting/crafting_ingridient.gd" id="3_3ixka"]
+[ext_resource type="Texture2D" uid="uid://cusaaciw4qwba" path="res://assets/sprites/buildings/broken_first_communication_tower.png" id="3_ffr6g"]
+
+[sub_resource type="Resource" id="Resource_41mew"]
+script = ExtResource("2_biknw")
+item = ExtResource("2_up35j")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_syyfq"]
+script = ExtResource("3_3ixka")
+reqiured_item = SubResource("Resource_41mew")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b61l"]
+size = Vector2(48, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2mb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ffr6g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BrokenFirstCommunicationTower" instance=ExtResource("1_r7527")]
+needed_ingdidients = Array[ExtResource("3_3ixka")]([SubResource("Resource_syyfq")])
 switch_to = ExtResource("2_5liyj")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_0b61l")
+
+[node name="BuildingSprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_s2mb7")
+autoplay = "default"
+frame_progress = 0.126472

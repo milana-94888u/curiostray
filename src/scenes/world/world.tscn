@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://mf5tlynfdkjk"]
+[gd_scene load_steps=28 format=3 uid="uid://mf5tlynfdkjk"]
 
 [ext_resource type="Resource" uid="uid://c7vdph7u4ym43" path="res://resources/inventory/items/sillicat_mineral.tres" id="1_l147k"]
 [ext_resource type="Texture2D" uid="uid://d03au3s73ihrh" path="res://assets/sprites/tilesets/tileset.png" id="1_r6uo1"]
@@ -10,11 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://ds57fv1perq8q" path="res://assets/sprites/bg.jpg" id="8_q13r6"]
 [ext_resource type="PackedScene" uid="uid://dampbnd1tj0hc" path="res://src/scenes/world/buildings/main_building.tscn" id="11_5wtg1"]
 [ext_resource type="Script" path="res://src/scenes/world/PlayerSpawner.gd" id="11_c0ecx"]
+[ext_resource type="PackedScene" uid="uid://d2a4bpptl6nar" path="res://src/scenes/world/buildings/broken_second_communication_tower.tscn" id="11_jhbiu"]
 [ext_resource type="Script" path="res://src/scenes/world/BuildBlockingBodiesManager.gd" id="11_ykvhv"]
 [ext_resource type="PackedScene" uid="uid://cxc0xkdjr21h2" path="res://src/scenes/player/player.tscn" id="12_djoyi"]
+[ext_resource type="PackedScene" uid="uid://0ody4b1ph7sl" path="res://src/scenes/world/buildings/broken_landing_pad.tscn" id="12_dyrw0"]
 [ext_resource type="Script" path="res://src/scenes/world/WorldGenerator.gd" id="12_imxky"]
 [ext_resource type="PackedScene" uid="uid://bx3biwxu60gk1" path="res://src/scenes/player/player_levels/player_2.tscn" id="13_4w0t8"]
 [ext_resource type="PackedScene" uid="uid://cdxqc004nv6op" path="res://src/scenes/player/player_levels/player_3.tscn" id="14_f4jp3"]
+[ext_resource type="PackedScene" uid="uid://ueoasms1xhgm" path="res://src/scenes/world/buildings/broken_first_communication_tower.tscn" id="16_w8rgb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbnwn"]
 texture = ExtResource("1_r6uo1")
@@ -121,6 +124,9 @@ caves_noise = SubResource("FastNoiseLite_kx7j1")
 ores_noise = SubResource("FastNoiseLite_6jyg8")
 energy_noise = SubResource("FastNoiseLite_pyhf8")
 main_building_scene = ExtResource("11_5wtg1")
+broken_first_communication_tower_scene = ExtResource("16_w8rgb")
+broken_second_communication_tower_scene = ExtResource("11_jhbiu")
+broken_landing_pad_scene = ExtResource("12_dyrw0")
 
 [node name="BuildBlockingBodiesManager" type="Node" parent="." node_paths=PackedStringArray("world")]
 script = ExtResource("11_ykvhv")

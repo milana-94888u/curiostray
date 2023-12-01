@@ -15,6 +15,9 @@ extends Node
 @export var energy_noise: Noise
 
 @export var main_building_scene: PackedScene
+@export var broken_first_communication_tower_scene: PackedScene
+@export var broken_second_communication_tower_scene: PackedScene
+@export var broken_landing_pad_scene: PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +28,9 @@ func _ready() -> void:
 	generate_ores()
 	generate_energy()
 	set_main_building()
+	set_broken_first_communication_tower(30)
+	set_broken_second_communication_tower(50)
+	set_broken_landing_pad(-30)
 
 
 func generate_level() -> void:
@@ -89,13 +95,25 @@ func set_main_building() -> int:
 	return level
 	
 	
+func set_broken_first_communication_tower(x: int) -> void:
+	var level := flatten_area_with_level(x - 2, x)
+	var building := broken_first_communication_tower_scene.instantiate() as BrokenBuilding
+	building.position = world.map_to_local(Vector2i(x, level - 4)) - 8 * Vector2.ONE
+	world.add_child(building)
 	
 	
+func set_broken_second_communication_tower(x: int) -> void:
+	var level := flatten_area_with_level(x - 3, x + 1)
+	var building := broken_second_communication_tower_scene.instantiate() as BrokenBuilding
+	building.position = world.map_to_local(Vector2i(x, level - 5)) - 8 * Vector2.ONE
+	world.add_child(building)
 	
 	
-	
-	
-	
+func set_broken_landing_pad(x: int) -> void:
+	var level := flatten_area_with_level(x - 10, x + 9)
+	var building := broken_landing_pad_scene.instantiate() as BrokenBuilding
+	building.position = world.map_to_local(Vector2i(x, level - 2))
+	world.add_child(building)
 	
 	
 	

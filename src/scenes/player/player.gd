@@ -6,11 +6,14 @@ var pick_queue: Array[PickableItem]
 
 
 @export var move_speed := 300.0
-@export var fly_time := 10.0
+@export var fly_time := 3.0
 
 
-@onready var left_raycast := $LeftRayCast as RayCast2D
-@onready var right_raycast := $RightRayCast as RayCast2D
+@export var blocks: Array[Item]
+
+
+@onready var left_shapecast := $LeftShapeCast as ShapeCast2D
+@onready var right_shapecast := $RightShapeCast as ShapeCast2D
 
 
 @onready var left_engine := $LeftPlayerEngineFire as Sprite2D
@@ -18,6 +21,12 @@ var pick_queue: Array[PickableItem]
 
 
 @onready var ui_canvas := $PlayerUICanvas
+
+
+@onready var use_item_fsm := $UseItemFSM as FiniteStateMachine
+@onready var block_place_state := $UseItemFSM/BlockPlaceState as State
+@onready var drill_state := $UseItemFSM/DrillState as State
+@onready var use_item_state := $UseItemFSM/UseItemState as State
 
 
 @export var player_data: PlayerData:
@@ -58,11 +67,14 @@ func try_picks() -> void:
 
 
 func _on_player_ui_canvas_set_drill() -> void:
-	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/DrillState)
+	use_item_fsm.transition_to(drill_state)
 
 
 func _on_player_ui_canvas_set_usable_slot(slot: InventorySlot) -> void:
-	($UseItemFSM as FiniteStateMachine).transition_to($UseItemFSM/BlockPlaceState, slot)
+	if slot.item in blocks:
+		use_item_fsm.transition_to(block_place_state, slot)
+	else:
+		use_item_fsm.transition_to(use_item_state, slot)
 
 
 

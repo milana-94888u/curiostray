@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2a4bpptl6nar"]
+
+[ext_resource type="PackedScene" uid="uid://cm3lvrxvy4p4g" path="res://src/scenes/world/buildings/broken_building.tscn" id="1_6eg4a"]
+[ext_resource type="Texture2D" uid="uid://7rbfchhpci0j" path="res://assets/sprites/buildings/broken_second_communication_tower.png" id="2_cai0p"]
+[ext_resource type="PackedScene" uid="uid://chxdswiypfqbb" path="res://src/scenes/world/buildings/second_communication_tower.tscn" id="2_uutlm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1weg8"]
+size = Vector2(64, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmrvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cai0p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BrokenSecondCommunicationTower" instance=ExtResource("1_6eg4a")]
+switch_to = ExtResource("2_uutlm")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_1weg8")
+
+[node name="BuildingSprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_dmrvq")

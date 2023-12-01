@@ -1,8 +1,21 @@
-[gd_scene format=3 uid="uid://b11bn5k3khnnk"]
+[gd_scene load_steps=2 format=3 uid="uid://b11bn5k3khnnk"]
+
+[ext_resource type="Texture2D" uid="uid://dvd7swe31rsh" path="res://assets/sprites/icons/laser_drill.png" id="1_7hmk5"]
 
 [node name="DrillSlot" type="Button"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 8.0
 offset_bottom = 8.0
+tooltip_text = "Laser drill"
 focus_mode = 1
 toggle_mode = true
+shortcut_in_tooltip = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7hmk5")

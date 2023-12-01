@@ -148,6 +148,21 @@ script = ExtResource("11_c0ecx")
 world = NodePath("..")
 player_levels = Array[PackedScene]([ExtResource("12_djoyi"), ExtResource("13_4w0t8"), ExtResource("14_f4jp3")])
 
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerSpawner"]
+
+[node name="NewLevelLabel" type="Label" parent="PlayerSpawner/CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
 
